@@ -1,0 +1,7 @@
+include dash_cool_components/dash_cool_components.min.js
+include dash_cool_components/dash_cool_components.min.js.map
+include dash_cool_components/metadata.json
+include dash_cool_components/package-info.json
+include README.md
+include LICENSE
+include package.json
