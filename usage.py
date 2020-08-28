@@ -7,9 +7,8 @@ import dash_bootstrap_components as dbc
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
-    dash_cool_components.Keywords(
+    dash_cool_components.DateTimePicker(
         id='input',
-        tagStyle={'background-color': 'red'}
     ),
     html.Div(id='output')
 ])

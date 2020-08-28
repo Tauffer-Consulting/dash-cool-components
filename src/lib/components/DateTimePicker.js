@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-/**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+/*
+ * Date Time picker component.
  */
 export default class DateTimePicker extends Component {
     render() {
@@ -28,16 +24,15 @@ export default class DateTimePicker extends Component {
 DateTimePicker.defaultProps = {};
 
 DateTimePicker.propTypes = {
-    /**
-     * The ID used to identify this component in Dash callbacks.
-     */
+
+    // The ID used to identify this component in Dash callbacks.
     id: PropTypes.string,
 
-    /**
-     * The value displayed in the input.
-     */
+
+    // The value displayed in the input.
     value: PropTypes.string,
 
+    // Style object property
     style: PropTypes.object,
 
     /**

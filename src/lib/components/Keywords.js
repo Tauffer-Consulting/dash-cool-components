@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TagInput } from 'reactjs-tag-input'
 
-/**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
+/*
+ * Keyword tag component 
  */
 export default class Keywords extends Component {
     constructor(props) {
@@ -42,9 +38,8 @@ export default class Keywords extends Component {
 Keywords.defaultProps = {};
 
 Keywords.propTypes = {
-    /**
-     * The ID used to identify this component in Dash callbacks.
-     */
+
+    // The ID used to identify this component in Dash callbacks.
     id: PropTypes.string,
 
 
