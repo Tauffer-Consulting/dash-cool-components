@@ -2,6 +2,8 @@
 
 export(DateTimePicker)
 export(FileExplorer)
+export(Keywords)
+export(keywords)
 export(dateTimePicker)
 export(fileExplorer)
 export(dashCoolComponents)

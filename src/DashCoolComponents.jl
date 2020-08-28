@@ -7,6 +7,7 @@ const version = "0.0.1"
 
 include("datetimepicker.jl")
 include("fileexplorer.jl")
+include("keywords.jl")
 
 function __init__()
     DashBase.register_package(
