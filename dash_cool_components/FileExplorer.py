@@ -5,16 +5,12 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FileExplorer(Component):
     """A FileExplorer component.
-ExampleComponent is an example component.
-It takes a property, `label`, and
-displays it.
-It renders an input with the property `value`
-which is editable by the user.
+
 
 Keyword arguments:
-- id (string; optional): The ID used to identify this component in Dash callbacks.
-- selectedPath (string; optional): A selectedPath that will be printed when this component is rendered.
-- value (list; optional): The value displayed in the input."""
+- id (string; optional)
+- selectedPath (string; optional)
+- value (list; optional)"""
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'selectedPath', 'value']

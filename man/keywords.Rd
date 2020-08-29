@@ -6,16 +6,16 @@
 \title{Keywords component}
 
 \description{
-ExampleComponent is an example component. It takes a property, `label`, and displays it. It renders an input with the property `value` which is editable by the user.
+
 }
 
 \usage{
 keywords(id=NULL, wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL,
-tagDeleteStyle=NULL, placeholder=NULL)
+tagDeleteStyle=NULL, placeholder=NULL, value=NULL)
 }
 
 \arguments{
-\item{id}{Character. The ID used to identify this component in Dash callbacks.}
+\item{id}{Character. }
 
 \item{wrapperStyle}{Named list. }
 
@@ -26,6 +26,8 @@ tagDeleteStyle=NULL, placeholder=NULL)
 \item{tagDeleteStyle}{Named list. }
 
 \item{placeholder}{Character. }
+
+\item{value}{Unnamed list. }
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

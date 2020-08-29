@@ -7,17 +7,17 @@ import dash_bootstrap_components as dbc
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
-    dash_cool_components.DateTimePicker(
+    dash_cool_components.Keywords(
         id='input',
     ),
     html.Div(id='output')
 ])
 
-"""
+
 @app.callback(Output('output', 'children'), [Input('input', 'value')])
 def display_output(value):
     return 'You have entered {}'.format(value)
-"""
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

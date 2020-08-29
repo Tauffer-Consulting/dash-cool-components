@@ -14,6 +14,8 @@ export default class Keywords extends Component {
 
     onTagsChanged(tags) {
         this.setState({ tags })
+        const { value, setProps } = this.props;
+        setProps({ value: tags })
     }
 
     render() {
@@ -57,7 +59,8 @@ Keywords.propTypes = {
     // Placeholder
     placeholder: PropTypes.string,
 
-
+    // Tags Values
+    value: PropTypes.array,
 
     /**
      * Dash-assigned callback that should be called to report property changes
