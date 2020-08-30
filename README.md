@@ -2,7 +2,7 @@
 <h3 align="center">Dash Cool Components</h3>
 
 <p align="center">
-  Useful components for Plotly Dash
+  Cool React components, wrapped for Plotly Dash
 </p>
 
 
