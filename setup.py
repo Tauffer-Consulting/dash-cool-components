@@ -16,7 +16,7 @@ with open(os.path.join(here, 'README.md')) as f:
 
 setup(
     name=package_name,
-    description=package.get('description', package_name),
+    description=package["description"],
     long_description=long_description,
     long_description_content_type='text/markdown',
     version=package["version"],

@@ -14,10 +14,6 @@
 
 ## Installation
 
-### PyPI
-
-You can install _dash-cool-components_ with `pip`:
-
 ```sh
 pip install dash-cool-components
 ```
@@ -31,7 +27,6 @@ pip install dash-cool-components
 
   A date-time picker.
   [Source React component]().
-  <br></br>
 
   ```
   import dash
@@ -59,7 +54,6 @@ pip install dash-cool-components
 
   File and directory browser given a flat keyed list of objects.
   [Source React component](https://github.com/uptick/react-keyed-file-browser).
-  <br></br>
 
   ```
   import dash
@@ -88,4 +82,30 @@ pip install dash-cool-components
   ```
 
   ![](images/gif_keyedfilebrowser.gif)
+</details>
+
+<details>
+  <summary>
+    <strong>Tag Input</strong>
+  </summary>
+
+  A tag input component.
+  [Source React component](https://github.com/leekevinyg/react-tag-input).
+
+  ```
+  import dash
+  import dash_html_components as html
+  import dash_cool_components
+
+  app = dash.Dash(__name__)
+
+  my_component = dash_cool_components.Keywords(id='tag_input')
+  app.layout = html.Div(my_component)
+
+  if __name__ == '__main__':
+      app.run_server(debug=True)
+
+  ```
+
+  ![](images/gif_taginput.gif)
 </details>
