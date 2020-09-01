@@ -1,9 +1,9 @@
 from .DateTimePicker import DateTimePicker
-from .FileExplorer import FileExplorer
-from .Keywords import Keywords
+from .KeyedFileBrowser import KeyedFileBrowser
+from .TagInput import TagInput
 
 __all__ = [
     "DateTimePicker",
-    "FileExplorer",
-    "Keywords"
+    "KeyedFileBrowser",
+    "TagInput"
 ]

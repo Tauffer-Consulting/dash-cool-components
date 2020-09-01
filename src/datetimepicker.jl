@@ -11,9 +11,10 @@ Keyword arguments:
 - `id` (String; optional)
 - `value` (String; optional)
 - `style` (Dict; optional)
+- `timezone` (String; optional)
 """
 function datetimepicker(; kwargs...)
-        available_props = Symbol[:id, :value, :style]
+        available_props = Symbol[:id, :value, :style, :timezone]
         wild_props = Symbol[]
         return Component("datetimepicker", "DateTimePicker", "dash_cool_components", available_props, wild_props; kwargs...)
 end

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TagInput } from 'reactjs-tag-input'
+import { TagInput as InputTag } from 'reactjs-tag-input'
 
 /*
  * Keyword tag component 
  */
-export default class Keywords extends Component {
+export default class TagInput extends Component {
     constructor(props) {
         super(props);
         this.state = { tags: [] }
@@ -23,7 +23,7 @@ export default class Keywords extends Component {
 
         return (
             <div id={id}>
-                <TagInput
+                <InputTag
                     tags={this.state.tags}
                     onTagsChanged={this.onTagsChanged}
                     wrapperStyle={wrapperStyle}
@@ -37,9 +37,9 @@ export default class Keywords extends Component {
     }
 }
 
-Keywords.defaultProps = {};
+TagInput.defaultProps = {};
 
-Keywords.propTypes = {
+TagInput.propTypes = {
 
     // The ID used to identify this component in Dash callbacks.
     id: PropTypes.string,

@@ -10,7 +10,7 @@
 }
 
 \usage{
-dateTimePicker(id=NULL, value=NULL, style=NULL)
+dateTimePicker(id=NULL, value=NULL, style=NULL, timezone=NULL)
 }
 
 \arguments{
@@ -19,6 +19,8 @@ dateTimePicker(id=NULL, value=NULL, style=NULL)
 \item{value}{Character. }
 
 \item{style}{Named list. }
+
+\item{timezone}{Character. }
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

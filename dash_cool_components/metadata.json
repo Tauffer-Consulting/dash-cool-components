@@ -25,6 +25,13 @@
         "required": false,
         "description": ""
       },
+      "timezone": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
       "setProps": {
         "type": {
           "name": "func"
@@ -34,9 +41,9 @@
       }
     }
   },
-  "src/lib/components/FileExplorer.js": {
+  "src/lib/components/KeyedFileBrowser.js": {
     "description": "",
-    "displayName": "FileExplorer",
+    "displayName": "KeyedFileBrowser",
     "methods": [],
     "props": {
       "id": {
@@ -69,9 +76,9 @@
       }
     }
   },
-  "src/lib/components/Keywords.js": {
+  "src/lib/components/TagInput.js": {
     "description": "",
-    "displayName": "Keywords",
+    "displayName": "TagInput",
     "methods": [
       {
         "name": "onTagsChanged",

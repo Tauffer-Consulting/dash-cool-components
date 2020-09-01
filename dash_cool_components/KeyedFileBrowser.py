@@ -3,22 +3,21 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class DateTimePicker(Component):
-    """A DateTimePicker component.
+class KeyedFileBrowser(Component):
+    """A KeyedFileBrowser component.
 
 
 Keyword arguments:
 - id (string; optional)
-- value (string; optional)
-- style (dict; optional)
-- timezone (string; optional)"""
+- selectedPath (string; optional)
+- value (list; optional)"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, style=Component.UNDEFINED, timezone=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'value', 'style', 'timezone']
-        self._type = 'DateTimePicker'
+    def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'selectedPath', 'value']
+        self._type = 'KeyedFileBrowser'
         self._namespace = 'dash_cool_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'value', 'style', 'timezone']
+        self.available_properties = ['id', 'selectedPath', 'value']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')
@@ -30,4 +29,4 @@ Keyword arguments:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(DateTimePicker, self).__init__(**args)
+        super(KeyedFileBrowser, self).__init__(**args)

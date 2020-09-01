@@ -6,7 +6,7 @@ import '../../../node_modules/react-keyed-file-browser/dist/react-keyed-file-bro
 /*
  * File Browser component.
  */
-export default class FileExplorer extends Component {
+export default class KeyedFileBrowser extends Component {
 
 
     render() {
@@ -24,9 +24,9 @@ export default class FileExplorer extends Component {
     }
 }
 
-FileExplorer.defaultProps = {};
+KeyedFileBrowser.defaultProps = {};
 
-FileExplorer.propTypes = {
+KeyedFileBrowser.propTypes = {
 
     // The ID used to identify this component in Dash callbacks.
     id: PropTypes.string,

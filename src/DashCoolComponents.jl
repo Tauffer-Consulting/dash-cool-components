@@ -3,11 +3,11 @@ module DashCoolComponents
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
-const version = "0.0.2"
+const version = "0.0.3"
 
 include("datetimepicker.jl")
-include("fileexplorer.jl")
-include("keywords.jl")
+include("keyedfilebrowser.jl")
+include("taginput.jl")
 
 function __init__()
     DashBase.register_package(

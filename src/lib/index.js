@@ -1,14 +1,14 @@
-import FileExplorer from './components/FileExplorer';
+import KeyedFileBrowser from './components/KeyedFileBrowser';
 import DateTimePicker from './components/DateTimePicker';
-import Keywords from './components/Keywords'
+import TagInput from './components/TagInput'
 
 export {
-    FileExplorer
+    KeyedFileBrowser
 };
 export {
     DateTimePicker
 };
 
 export {
-    Keywords
+    TagInput
 };

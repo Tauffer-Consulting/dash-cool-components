@@ -1,9 +1,11 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(DateTimePicker)
-export(FileExplorer)
-export(Keywords)
+export(KeyedFileBrowser)
+export(TagInput)
 export(keywords)
 export(dateTimePicker)
+export(tagInput)
 export(fileExplorer)
 export(dashCoolComponents)
+export(keyedFileBrowser)
