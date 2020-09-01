@@ -1,5 +1,5 @@
 
-<h3 align="center">Dash Cool Components</h3>
+<h2 align="center">Dash Cool Components</h2>
 
 <p align="center">
   Cool React components, wrapped for Plotly Dash
