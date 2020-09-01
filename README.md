@@ -5,6 +5,7 @@
   Useful components for Plotly Dash
 </p>
 
+[![PyPI version](https://badge.fury.io/py/dash-cool-components.svg)](https://badge.fury.io/py/dash-cool-components)
 
 ## Table of contents
 
