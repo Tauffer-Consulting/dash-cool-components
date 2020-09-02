@@ -11,7 +11,7 @@ Keyword arguments:
 - id (string; optional)
 - datetime (string; default undefined)
 - timezone (string; default undefined)
-- value (dict; optional)
+- value (dict; default { "datetime": "", "timezone": "" })
 - renderTimezone (boolean; default True)
 - style (dict; default { "border": "solid 1px", "borderColor": "#ced4da", "borderRadius": "2px", "color": '#545057', 'height': '33px', 'backgroundColor': 'white' })"""
     @_explicitize_args

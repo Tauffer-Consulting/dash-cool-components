@@ -73,6 +73,8 @@ DateTimePicker.defaultProps = {
 
     renderTimezone: true,
 
+    value: { "datetime": "", "timezone": "" },
+
     style: { "border": "solid 1px", "borderColor": "#ced4da", "borderRadius": "2px", "color": '#545057', 'height': '33px', 'backgroundColor': 'white' },
 };
 

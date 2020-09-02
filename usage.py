@@ -10,6 +10,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div([
     dash_cool_components.DateTimePicker(
         id='input',
+        renderTimezone=True
     ),
     html.Div(id='output')
 ])
@@ -17,8 +18,12 @@ app.layout = html.Div([
 
 @app.callback(Output('output', 'children'), [Input('input', 'value')])
 def display_output(value):
-    return 'You have entered {}'.format(value)
-
+    if value is not None:
+        output_div = html.Div([
+            html.H4('Datetime: {}'.format(value['datetime'])),
+            html.H4('Timezone: {}'.format(value['timezone']))
+        ])
+        return output_div
 
 if __name__ == '__main__':
     app.run_server(debug=True)

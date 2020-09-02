@@ -38,7 +38,11 @@
           "name": "object"
         },
         "required": false,
-        "description": ""
+        "description": "",
+        "defaultValue": {
+          "value": "{ \"datetime\": \"\", \"timezone\": \"\" }",
+          "computed": false
+        }
       },
       "renderTimezone": {
         "type": {

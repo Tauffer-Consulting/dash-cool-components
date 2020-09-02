@@ -35,7 +35,7 @@ KeyedFileBrowser.propTypes = {
     selectedPath: PropTypes.string,
 
     // The value displayed in the input.
-    value: PropTypes.array,
+    value: PropTypes.array.isRequired,
 
     /**
      * Dash-assigned callback that should be called to report property changes
