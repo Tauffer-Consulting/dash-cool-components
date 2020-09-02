@@ -1,13 +1,13 @@
 Package: dashCoolComponents
-Title: Useful components built in react for dash
-Version: 0.0.3
-Description: Useful components built in react for dash
+Title: Cool React components, wrapped for Plotly Dash
+Version: 0.0.4
+Description: Cool React components, wrapped for Plotly Dash
 Depends: R (>= 3.0.2)
 Imports: 
 Suggests: 
 License: MIT + file LICENSE
-URL: https://github.com/https://github.com/Tauffer-Consulting/dash-cool-components
-BugReports: https://github.com/https://github.com/Tauffer-Consulting/dash-cool-components/issues
+URL: https://github.com/Tauffer-Consulting/dash-cool-components
+BugReports: https://github.com/Tauffer-Consulting/dash-cool-components/issues
 Encoding: UTF-8
 LazyData: true
 KeepSource: true

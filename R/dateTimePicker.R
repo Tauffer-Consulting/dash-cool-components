@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-dateTimePicker <- function(id=NULL, value=NULL, style=NULL, timezone=NULL) {
+dateTimePicker <- function(id=NULL, datetime=NULL, timezone=NULL, value=NULL, renderTimezone=NULL, style=NULL) {
     
-    props <- list(id=id, value=value, style=style, timezone=timezone)
+    props <- list(id=id, datetime=datetime, timezone=timezone, value=value, renderTimezone=renderTimezone, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ dateTimePicker <- function(id=NULL, value=NULL, style=NULL, timezone=NULL) {
         props = props,
         type = 'DateTimePicker',
         namespace = 'dash_cool_components',
-        propNames = c('id', 'value', 'style', 'timezone'),
+        propNames = c('id', 'datetime', 'timezone', 'value', 'renderTimezone', 'style'),
         package = 'dashCoolComponents'
         )
 

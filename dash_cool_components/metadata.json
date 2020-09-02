@@ -11,26 +11,56 @@
         "required": false,
         "description": ""
       },
-      "value": {
+      "datetime": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": ""
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": ""
+        "description": "",
+        "defaultValue": {
+          "value": "undefined",
+          "computed": true
+        }
       },
       "timezone": {
         "type": {
           "name": "string"
         },
         "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "undefined",
+          "computed": true
+        }
+      },
+      "value": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
         "description": ""
+      },
+      "renderTimezone": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{ \"border\": \"solid 1px\", \"borderColor\": \"#ced4da\", \"borderRadius\": \"2px\", \"color\": '#545057', 'height': '33px', 'backgroundColor': 'white' }",
+          "computed": false
+        }
       },
       "setProps": {
         "type": {
