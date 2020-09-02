@@ -28,7 +28,7 @@ pip install dash-cool-components
   A date-time-timezone picker
   [Source Timezone React component](https://www.npmjs.com/package/react-bootstrap-timezone-picker).
   
-  Component Properties:  
+  ### Component Properties:  
     
   **The ID used to identify this component in Dash callbacks.**
   * id: string  
@@ -88,6 +88,17 @@ pip install dash-cool-components
 
   File and directory browser given a flat keyed list of objects.
   [Source React component](https://github.com/uptick/react-keyed-file-browser).
+  
+  ### Component Properties
+    
+  **The ID used to identify this component in Dash callbacks.**  
+  * id: string
+
+  **A selectedPath that will be printed when this component is rendered**  
+  * selectedPath: string
+
+  **Array with objects containing files paths and infos**  
+  * value: array
 
   ```
   import dash
@@ -104,7 +115,7 @@ pip install dash-cool-components
       {'key': 'dir2/other_image.tif', 'size': 499240007}
   ]
 
-  my_component = dash_cool_components.FileExplorer(
+  my_component = dash_cool_components.KeyedFileBrowser(
       id='file_explorer',
       value=dir_dict,
   )
@@ -125,6 +136,30 @@ pip install dash-cool-components
 
   A tag input component.
   [Source React component](https://github.com/leekevinyg/react-tag-input).
+  
+  ### Components Properties
+    
+  **The ID used to identify this component in Dash callbacks.**  
+  * id: string
+
+  **Wrapper style css**  
+  * wrapperStyle: object  
+  
+  **Tag style css**  
+  * tagStyle: object
+
+  **Input style css**  
+  * inputStyle: object
+
+  **Delete button style**  
+  * tagDeleteStyle: object
+
+  **Placeholder**  
+  * placeholder: string
+
+  **Tags Values**
+  * value: array
+
 
   ```
   import dash
