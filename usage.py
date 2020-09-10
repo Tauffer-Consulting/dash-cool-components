@@ -5,25 +5,35 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-app.layout = html.Div([
-    dash_cool_components.DateTimePicker(
-        id='input',
-        renderTimezone=True
-    ),
-    html.Div(id='output')
-])
+app.layout = dbc.Container([
+    dbc.Row([
+        dbc.Col(
+            dash_cool_components.TagInput(
+                id='input',
+                placeholder='input'
+            ), width={'size':6}
+        ),
+        dbc.Col(
+            dash_cool_components.TagInput(id='output', placeholder='output'),
+            width={'size':6}
+        )
+    ]),
+    html.Div(id='hidden')
+], style={'margin-top': '200px'})
 
+@app.callback(
+    Output('hidden', 'children'),
+    [Input('output', 'value')]
+)
+def output_test(value):
+    print('out', value)
 
-@app.callback(Output('output', 'children'), [Input('input', 'value')])
+@app.callback(Output('output', 'value'), [Input('input', 'value')])
 def display_output(value):
     if value is not None:
-        output_div = html.Div([
-            html.H4('Datetime: {}'.format(value['datetime'])),
-            html.H4('Timezone: {}'.format(value['timezone']))
-        ])
-        return output_div
+        return value
 
 if __name__ == '__main__':
     app.run_server(debug=True)
