@@ -1,24 +1,38 @@
-# AUTO GENERATED FILE - DO NOT EDIT
 
-export dashcoolcomponents
+module DashCoolComponents
+using Dash
 
-"""
-    dashcoolcomponents(;kwargs...)
+const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
+const version = "0.0.4"
 
-A DashCoolComponents component.
-ExampleComponent is an example component.
-It takes a property, `label`, and
-displays it.
-It renders an input with the property `value`
-which is editable by the user.
-Keyword arguments:
-- `id` (String; optional): The ID used to identify this component in Dash callbacks.
-- `label` (String; required): A label that will be printed when this component is rendered.
-- `value` (String; optional): The value displayed in the input.
-"""
-function dashcoolcomponents(; kwargs...)
-        available_props = Symbol[:id, :label, :value]
-        wild_props = Symbol[]
-        return Component("dashcoolcomponents", "DashCoolComponents", "dash_cool_components", available_props, wild_props; kwargs...)
+include("''_datetimepicker.jl")
+include("''_keyedfilebrowser.jl")
+include("''_taginput.jl")
+
+function __init__()
+    DashBase.register_package(
+        DashBase.ResourcePkg(
+            "dash_cool_components",
+            resources_path,
+            version = version,
+            [
+                DashBase.Resource(
+    relative_package_path = "dash_cool_components.min.js",
+    external_url = nothing,
+    dynamic = nothing,
+    async = nothing,
+    type = :js
+),
+DashBase.Resource(
+    relative_package_path = "dash_cool_components.min.js.map",
+    external_url = nothing,
+    dynamic = true,
+    async = nothing,
+    type = :js
+)
+            ]
+        )
+
+    )
 end
-
+end
