@@ -25,8 +25,28 @@ pip install dash-cool-components
     <strong>Datatime Picker</strong>
   </summary>
 
-  A date-time picker.
-  [Source React component]().
+  A date-time-timezone picker
+  [Source Timezone React component](https://www.npmjs.com/package/react-bootstrap-timezone-picker).
+  
+  ### Component Properties:  
+    
+  **The ID used to identify this component in Dash callbacks.**
+  * id: string  
+  
+  **Datetime value**  
+  * datetime: string  
+  
+  **Timezone value** 
+  * timezone: string  
+  
+  **Value object with datetime and timezone selected values**  
+  * value: object  
+  
+  **Boolean to render or not timezone picker**  
+  * renderTimezone: boolean  
+
+  **Style object property for datetime picker**  
+  * style: object  
 
   ```
   import dash
@@ -35,15 +55,29 @@ pip install dash-cool-components
 
   app = dash.Dash(__name__)
 
-  my_component = dash_cool_components.DateTimePicker(id='date_time_picker')
-  app.layout = html.Div(my_component)
+  app.layout = html.Div([
+      dash_cool_components.DateTimePicker(
+          id='input',
+          renderTimezone=True
+      ),
+      html.Div(id='output')
+  ])
+  
+  @app.callback(Output('output', 'children'), [Input('input', 'value')])
+  def display_output(value):
+      if value is not None:
+          output_div = html.Div([
+              html.H4('Datetime: {}'.format(value['datetime'])),
+              html.H4('Timezone: {}'.format(value['timezone']))
+          ])
+          return output_div
 
   if __name__ == '__main__':
       app.run_server(debug=True)
 
   ```
 
-  ![](images/gif_datetimepicker.gif)
+  ![](images/gif_datetimetimezonepicker.gif)
 </details>
 
 
@@ -54,6 +88,17 @@ pip install dash-cool-components
 
   File and directory browser given a flat keyed list of objects.
   [Source React component](https://github.com/uptick/react-keyed-file-browser).
+  
+  ### Component Properties
+    
+  **The ID used to identify this component in Dash callbacks.**  
+  * id: string
+
+  **A selectedPath that will be printed when this component is rendered**  
+  * selectedPath: string
+
+  **Array with objects containing files paths and infos**  
+  * value: array
 
   ```
   import dash
@@ -70,7 +115,7 @@ pip install dash-cool-components
       {'key': 'dir2/other_image.tif', 'size': 499240007}
   ]
 
-  my_component = dash_cool_components.FileExplorer(
+  my_component = dash_cool_components.KeyedFileBrowser(
       id='file_explorer',
       value=dir_dict,
   )
@@ -91,6 +136,30 @@ pip install dash-cool-components
 
   A tag input component.
   [Source React component](https://github.com/leekevinyg/react-tag-input).
+  
+  ### Components Properties
+    
+  **The ID used to identify this component in Dash callbacks.**  
+  * id: string
+
+  **Wrapper style css**  
+  * wrapperStyle: object  
+  
+  **Tag style css**  
+  * tagStyle: object
+
+  **Input style css**  
+  * inputStyle: object
+
+  **Delete button style**  
+  * tagDeleteStyle: object
+
+  **Placeholder**  
+  * placeholder: string
+
+  **Tags Values**
+  * value: array
+
 
   ```
   import dash
