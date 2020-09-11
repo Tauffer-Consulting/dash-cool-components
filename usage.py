@@ -30,8 +30,9 @@ app.layout = dbc.Container([
 def output_test(value):
     print('out', value)
 
-@app.callback(Output('output', 'value'), [Input('input', 'value')])
+@app.callback(Output('output', 'injectedTags'), [Input('input', 'value')])
 def display_output(value):
+    print('input', value)
     if value is not None:
         return value
 

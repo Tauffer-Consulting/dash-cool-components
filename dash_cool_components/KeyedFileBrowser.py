@@ -10,9 +10,9 @@ class KeyedFileBrowser(Component):
 Keyword arguments:
 - id (string; optional)
 - selectedPath (string; optional)
-- value (list; optional)"""
+- value (list; required)"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, value=Component.REQUIRED, **kwargs):
         self._prop_names = ['id', 'selectedPath', 'value']
         self._type = 'KeyedFileBrowser'
         self._namespace = 'dash_cool_components'
@@ -25,7 +25,7 @@ Keyword arguments:
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
-        for k in []:
+        for k in ['value']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

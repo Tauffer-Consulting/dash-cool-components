@@ -1,70 +1,71 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { TagInput as InputTag } from 'reactjs-tag-input'
+import { TagInput as InputTag } from 'reactjs-tag-input';
+import isEqual from '../utils/isEqual';
+
+const replaceRefState = (refCurrent, newState, callback) => {
+    const { updater } = refCurrent;
+
+    updater.enqueueReplaceState(refCurrent, newState, callback);
+}
 
 /*
  * Keyword tag component 
  */
-export default class TagInput extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { tags: [] }
-        this.onTagsChanged = this.onTagsChanged.bind(this);
-    }
+const TagInput = ({ wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagStyle, injectedTags, setProps, id }) => {
+    const [tags, setTags] = useState([]);
+    const tagInputRef = useRef(null);
 
-    onTagsChanged(tags) {
-        this.setState({ tags })
-        const { value, setProps } = this.props;
-        setProps({ value: tags })
-    }
+    const haveTagsBeenInjected = useCallback(() => injectedTags && !isEqual(tags, injectedTags), [injectedTags]);
 
-    render() {
-        const { id, wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagStyle } = this.props;
+    const onTagsChanged = useCallback(tags => {
+        setTags(tags);
+        setProps({ value: tags });
+    }, []);
 
-        return (
-            <div id={id}>
-                <InputTag
-                    tags={this.state.tags}
-                    onTagsChanged={this.onTagsChanged}
-                    wrapperStyle={wrapperStyle}
-                    inputStyle={inputStyle}
-                    tagDeleteStyle={tagDeleteStyle}
-                    placeholder={placeholder}
-                    tagStyle={tagStyle}
-                />
-            </div>
-        );
-    }
+    const injectTagsInState = useCallback(() => {
+        if(haveTagsBeenInjected()){
+            if(tagInputRef.current) {
+                replaceRefState(tagInputRef.current, { selectedTags: injectedTags }, () => onTagsChanged(injectedTags))
+            }
+        }
+    }, [injectedTags]);
+
+    useEffect(injectTagsInState, [injectedTags])
+
+    return (
+        <div id={id}>
+            <InputTag
+                tags={tags}
+                onTagsChanged={onTagsChanged}
+                wrapperStyle={wrapperStyle}
+                inputStyle={inputStyle}
+                tagDeleteStyle={tagDeleteStyle}
+                placeholder={placeholder}
+                tagStyle={tagStyle}
+                ref={tagInputRef}
+            />
+        </div>
+    );
 }
 
-TagInput.defaultProps = {};
-
 TagInput.propTypes = {
-
-    // The ID used to identify this component in Dash callbacks.
-    id: PropTypes.string,
-
-
-    // Wrapper style css
     wrapperStyle: PropTypes.object,
-
     tagStyle: PropTypes.object,
-
-    // Input style css 
     inputStyle: PropTypes.object,
-
-    // Delete btn style
     tagDeleteStyle: PropTypes.object,
-
-    // Placeholder
     placeholder: PropTypes.string,
 
-    // Tags Values
-    value: PropTypes.array,
+    // Use this prop to force the render of your tags
+    injectedTags: PropTypes.array,
 
-    /**
-     * Dash-assigned callback that should be called to report property changes
-     * to Dash, to make them available for callbacks.
-     */
-    setProps: PropTypes.func
+    // Dash props
+    id: PropTypes.string,
+    setProps: PropTypes.func,
+
+    // Dash Feedback
+    value: PropTypes.array,
 };
+
+
+export default TagInput;
