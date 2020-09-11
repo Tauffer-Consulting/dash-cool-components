@@ -10,13 +10,12 @@
 }
 
 \usage{
-''TagInput(id=NULL, wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL,
-tagDeleteStyle=NULL, placeholder=NULL, value=NULL)
+''TagInput(wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL,
+tagDeleteStyle=NULL, placeholder=NULL, injectedTags=NULL,
+id=NULL, value=NULL)
 }
 
 \arguments{
-\item{id}{Character. }
-
 \item{wrapperStyle}{Named list. }
 
 \item{tagStyle}{Named list. }
@@ -26,6 +25,10 @@ tagDeleteStyle=NULL, placeholder=NULL, value=NULL)
 \item{tagDeleteStyle}{Named list. }
 
 \item{placeholder}{Character. }
+
+\item{injectedTags}{Unnamed list. }
+
+\item{id}{Character. }
 
 \item{value}{Unnamed list. }
 }

@@ -8,20 +8,21 @@ class TagInput(Component):
 
 
 Keyword arguments:
-- id (string; optional)
 - wrapperStyle (dict; optional)
 - tagStyle (dict; optional)
 - inputStyle (dict; optional)
 - tagDeleteStyle (dict; optional)
 - placeholder (string; optional)
+- injectedTags (list; optional)
+- id (string; optional)
 - value (list; optional)"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, wrapperStyle=Component.UNDEFINED, tagStyle=Component.UNDEFINED, inputStyle=Component.UNDEFINED, tagDeleteStyle=Component.UNDEFINED, placeholder=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'value']
+    def __init__(self, wrapperStyle=Component.UNDEFINED, tagStyle=Component.UNDEFINED, inputStyle=Component.UNDEFINED, tagDeleteStyle=Component.UNDEFINED, placeholder=Component.UNDEFINED, injectedTags=Component.UNDEFINED, id=Component.UNDEFINED, value=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'injectedTags', 'id', 'value']
         self._type = 'TagInput'
         self._namespace = 'dash_cool_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'value']
+        self.available_properties = ['wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'injectedTags', 'id', 'value']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

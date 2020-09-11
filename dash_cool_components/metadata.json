@@ -113,28 +113,8 @@
   "src/lib/components/TagInput.js": {
     "description": "",
     "displayName": "TagInput",
-    "methods": [
-      {
-        "name": "onTagsChanged",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "tags",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
       "wrapperStyle": {
         "type": {
           "name": "object"
@@ -170,9 +150,16 @@
         "required": false,
         "description": ""
       },
-      "value": {
+      "injectedTags": {
         "type": {
           "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "id": {
+        "type": {
+          "name": "string"
         },
         "required": false,
         "description": ""
@@ -182,7 +169,14 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
       }
     }
   }

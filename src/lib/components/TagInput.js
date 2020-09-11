@@ -1,24 +1,37 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { TagInput as InputTag } from 'reactjs-tag-input';
 import isEqual from '../utils/isEqual';
+
+const replaceRefState = (refCurrent, newState, callback) => {
+    const { updater } = refCurrent;
+
+    updater.enqueueReplaceState(refCurrent, newState, callback);
+}
 
 /*
  * Keyword tag component 
  */
 const TagInput = ({ wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagStyle, injectedTags, setProps, id }) => {
     const [tags, setTags] = useState([]);
+    const tagInputRef = useRef(null);
 
-    const onTagsChanged = useCallback((tags) => {
+    const haveTagsBeenInjected = useCallback(() => injectedTags && !isEqual(tags, injectedTags), [injectedTags]);
+
+    const onTagsChanged = useCallback(tags => {
         setTags(tags);
         setProps({ value: tags });
     }, []);
 
-    useEffect(() => {
-        if(injectedTags && !isEqual(tags, injectedTags)){
-            onTagsChanged(injectedTags);
+    const injectTagsInState = useCallback(() => {
+        if(haveTagsBeenInjected()){
+            if(tagInputRef.current) {
+                replaceRefState(tagInputRef.current, { selectedTags: injectedTags }, () => onTagsChanged(injectedTags))
+            }
         }
-    }, [injectedTags])
+    }, [injectedTags]);
+
+    useEffect(injectTagsInState, [injectedTags])
 
     return (
         <div id={id}>
@@ -30,6 +43,7 @@ const TagInput = ({ wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagSt
                 tagDeleteStyle={tagDeleteStyle}
                 placeholder={placeholder}
                 tagStyle={tagStyle}
+                ref={tagInputRef}
             />
         </div>
     );
@@ -41,6 +55,8 @@ TagInput.propTypes = {
     inputStyle: PropTypes.object,
     tagDeleteStyle: PropTypes.object,
     placeholder: PropTypes.string,
+
+    // Use this prop to force the render of your tags
     injectedTags: PropTypes.array,
 
     // Dash props
