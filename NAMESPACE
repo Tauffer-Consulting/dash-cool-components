@@ -3,6 +3,7 @@
 export(''DateTimePicker)
 export(''KeyedFileBrowser)
 export(''TagInput)
+export(index)
 export(dashCoolComponents)
 export(dateTimePicker)
 export(fileExplorer)

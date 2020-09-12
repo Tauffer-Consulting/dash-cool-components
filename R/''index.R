@@ -1,6 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-''DateTimePicker <- function(id=NULL, value=NULL, defaultValue=NULL, renderTimezone=NULL, style=NULL, dateInputStyle=NULL, timezoneInputStyle=NULL) {
+''index <- function(id=NULL, value=NULL, defaultValue=NULL, renderTimezone=NULL, style=NULL, dateInputStyle=NULL, timezoneInputStyle=NULL) {
     
     props <- list(id=id, value=value, defaultValue=defaultValue, renderTimezone=renderTimezone, style=style, dateInputStyle=dateInputStyle, timezoneInputStyle=timezoneInputStyle)
     if (length(props) > 0) {
@@ -8,7 +8,7 @@
     }
     component <- list(
         props = props,
-        type = 'DateTimePicker',
+        type = 'index',
         namespace = 'dash_cool_components',
         propNames = c('id', 'value', 'defaultValue', 'renderTimezone', 'style', 'dateInputStyle', 'timezoneInputStyle'),
         package = 'dashCoolComponents'

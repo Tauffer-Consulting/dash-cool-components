@@ -10,31 +10,35 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(
-            dash_cool_components.TagInput(
-                id='input',
-                placeholder='input'
-            ), width={'size':6}
+            width={'size':4}
         ),
         dbc.Col(
-            dash_cool_components.TagInput(id='output', placeholder='output'),
-            width={'size':6}
+            dash_cool_components.DateTimePicker(
+                id='timezone',
+                renderTimezone=True,
+                defaultValue='2001-05-15T00:00:00.000-03:00',
+                style={'flex-direction':'column'}
+            ), width={'size':4}
+        ),
+        dbc.Col(
+            width={'size':4}
         )
     ]),
     html.Div(id='hidden')
-], style={'margin-top': '200px'})
+], style={'marginTop': '200px'})
 
 @app.callback(
     Output('hidden', 'children'),
-    [Input('output', 'value')]
+    [Input('timezone', 'value')]
 )
-def output_test(value):
+def timezone_test(value):
     print('out', value)
 
-@app.callback(Output('output', 'injectedTags'), [Input('input', 'value')])
+""" @app.callback(Output('output', 'injectedTags'), [Input('input', 'value')])
 def display_output(value):
     print('input', value)
     if value is not None:
-        return value
+        return value """
 
 if __name__ == '__main__':
     app.run_server(debug=True)

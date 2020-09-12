@@ -1,6 +1,6 @@
 {
   "src/lib/components/DateTimePicker.js": {
-    "description": "",
+    "description": "DateTimePicker is a datetime input component.\r\nThe inputs can be initialized with the `defaultValue` property and the\r\ninput date, on ISO format, is specified with the `value` property.",
     "displayName": "DateTimePicker",
     "methods": [],
     "props": {
@@ -9,60 +9,16 @@
           "name": "string"
         },
         "required": false,
-        "description": ""
-      },
-      "datetime": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "undefined",
-          "computed": true
-        }
-      },
-      "timezone": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "undefined",
-          "computed": true
-        }
+        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
       },
       "value": {
         "type": {
-          "name": "object"
+          "name": "string"
         },
         "required": false,
-        "description": "",
+        "description": "The input's current value",
         "defaultValue": {
-          "value": "{ \"datetime\": \"\", \"timezone\": \"\" }",
-          "computed": false
-        }
-      },
-      "renderTimezone": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "true",
-          "computed": false
-        }
-      },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "{ \"border\": \"solid 1px\", \"borderColor\": \"#ced4da\", \"borderRadius\": \"2px\", \"color\": '#545057', 'height': '33px', 'backgroundColor': 'white' }",
+          "value": "null",
           "computed": false
         }
       },
@@ -71,7 +27,62 @@
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+        "description": "Dash-assigned callback that gets fired when the value changes."
+      },
+      "defaultValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The input's default value. Accepts values on the ISO format."
+      },
+      "renderTimezone": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Defines if the timezone input should be rendered. Defaults to true.",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The container's style."
+      },
+      "dateInputStyle": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": "The date input's style."
+      },
+      "timezoneInputStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "The timezone input's container style."
       }
     }
   },
