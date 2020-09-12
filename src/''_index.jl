@@ -1,11 +1,11 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export ''_datetimepicker
+export ''_index
 
 """
-    ''_datetimepicker(;kwargs...)
+    ''_index(;kwargs...)
 
-A DateTimePicker component.
+An index component.
 DateTimePicker is a datetime input component.
 The inputs can be initialized with the `defaultValue` property and the
 input date, on ISO format, is specified with the `value` property.
@@ -20,9 +20,9 @@ components in an app.
 - `dateInputStyle` (Dict | String; optional): The date input's style.
 - `timezoneInputStyle` (Dict; optional): The timezone input's container style.
 """
-function ''_datetimepicker(; kwargs...)
+function ''_index(; kwargs...)
         available_props = Symbol[:id, :value, :defaultValue, :renderTimezone, :style, :dateInputStyle, :timezoneInputStyle]
         wild_props = Symbol[]
-        return Component("''_datetimepicker", "DateTimePicker", "dash_cool_components", available_props, wild_props; kwargs...)
+        return Component("''_index", "index", "dash_cool_components", available_props, wild_props; kwargs...)
 end
 

@@ -3,8 +3,8 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class DateTimePicker(Component):
-    """A DateTimePicker component.
+class index(Component):
+    """An index component.
 DateTimePicker is a datetime input component.
 The inputs can be initialized with the `defaultValue` property and the
 input date, on ISO format, is specified with the `value` property.
@@ -22,7 +22,7 @@ components in an app.
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, defaultValue=Component.UNDEFINED, renderTimezone=Component.UNDEFINED, style=Component.UNDEFINED, dateInputStyle=Component.UNDEFINED, timezoneInputStyle=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'value', 'defaultValue', 'renderTimezone', 'style', 'dateInputStyle', 'timezoneInputStyle']
-        self._type = 'DateTimePicker'
+        self._type = 'index'
         self._namespace = 'dash_cool_components'
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'value', 'defaultValue', 'renderTimezone', 'style', 'dateInputStyle', 'timezoneInputStyle']
@@ -37,4 +37,4 @@ components in an app.
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(DateTimePicker, self).__init__(**args)
+        super(index, self).__init__(**args)

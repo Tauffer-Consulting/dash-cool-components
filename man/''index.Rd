@@ -1,16 +1,16 @@
 % Auto-generated: do not edit by hand
-\name{''DateTimePicker}
+\name{''index}
 
-\alias{''DateTimePicker}
+\alias{''index}
 
-\title{DateTimePicker component}
+\title{index component}
 
 \description{
 DateTimePicker is a datetime input component. The inputs can be initialized with the `defaultValue` property and the input date, on ISO format, is specified with the `value` property.
 }
 
 \usage{
-''DateTimePicker(id=NULL, value=NULL, defaultValue=NULL, renderTimezone=NULL,
+''index(id=NULL, value=NULL, defaultValue=NULL, renderTimezone=NULL,
 style=NULL, dateInputStyle=NULL, timezoneInputStyle=NULL)
 }
 

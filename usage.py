@@ -16,6 +16,8 @@ app.layout = dbc.Container([
             dash_cool_components.DateTimePicker(
                 id='timezone',
                 renderTimezone=True,
+                defaultValue='2001-05-15T00:00:00.000-03:00',
+                style={'flex-direction':'column'}
             ), width={'size':4}
         ),
         dbc.Col(
