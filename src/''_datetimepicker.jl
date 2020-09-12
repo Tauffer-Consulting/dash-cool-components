@@ -8,15 +8,15 @@ export ''_datetimepicker
 A DateTimePicker component.
 
 Keyword arguments:
-- `id` (String; optional)
 - `datetime` (String; optional)
-- `timezone` (String; optional)
-- `value` (Dict; optional)
 - `renderTimezone` (Bool; optional)
-- `style` (Dict; optional)
+- `dateInputStyle` (Dict; optional)
+- `timezoneInputStyle` (Dict; optional)
+- `id` (String; optional)
+- `value` (String; optional)
 """
 function ''_datetimepicker(; kwargs...)
-        available_props = Symbol[:id, :datetime, :timezone, :value, :renderTimezone, :style]
+        available_props = Symbol[:datetime, :renderTimezone, :dateInputStyle, :timezoneInputStyle, :id, :value]
         wild_props = Symbol[]
         return Component("''_datetimepicker", "DateTimePicker", "dash_cool_components", available_props, wild_props; kwargs...)
 end

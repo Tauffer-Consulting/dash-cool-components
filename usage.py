@@ -15,7 +15,7 @@ app.layout = dbc.Container([
         dbc.Col(
             dash_cool_components.DateTimePicker(
                 id='timezone',
-                renderTimezone=True
+                renderTimezone=True,
             ), width={'size':4}
         ),
         dbc.Col(
@@ -23,7 +23,7 @@ app.layout = dbc.Container([
         )
     ]),
     html.Div(id='hidden')
-], style={'margin-top': '200px'})
+], style={'marginTop': '200px'})
 
 @app.callback(
     Output('hidden', 'children'),

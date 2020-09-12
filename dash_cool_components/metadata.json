@@ -4,45 +4,12 @@
     "displayName": "DateTimePicker",
     "methods": [],
     "props": {
-      "id": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
       "datetime": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "undefined",
-          "computed": true
-        }
-      },
-      "timezone": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "undefined",
-          "computed": true
-        }
-      },
-      "value": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "{ \"datetime\": \"\", \"timezone\": \"\" }",
-          "computed": false
-        }
+        "description": ""
       },
       "renderTimezone": {
         "type": {
@@ -55,23 +22,48 @@
           "computed": false
         }
       },
-      "style": {
+      "dateInputStyle": {
         "type": {
           "name": "object"
         },
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "{ \"border\": \"solid 1px\", \"borderColor\": \"#ced4da\", \"borderRadius\": \"2px\", \"color\": '#545057', 'height': '33px', 'backgroundColor': 'white' }",
+          "value": "{\r\n    border: 'solid 1px',\r\n    borderColor: '#ced4da',\r\n    borderRadius: '2px',\r\n    color: '#545057',\r\n    height: '33px',\r\n    backgroundColor: 'white',\r\n}",
           "computed": false
         }
+      },
+      "timezoneInputStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
       },
       "setProps": {
         "type": {
           "name": "func"
         },
         "required": false,
-        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+        "description": ""
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
       }
     }
   },

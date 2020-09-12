@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TimezonePicker from 'react-bootstrap-timezone-picker';
-import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 import isEqual from '../utils/isEqual';
+import { DateTime } from 'luxon';
+import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 
-/*
- * Date Time picker component.
- */
 const defaultStyle = {
     border: 'solid 1px',
     borderColor: '#ced4da',
@@ -16,84 +14,95 @@ const defaultStyle = {
     backgroundColor: 'white',
 };
 
+const getFormattedDate = date => DateTime.fromISO(date);
 
-const getTimezoneFromDatetime = datetime => {
-    if(typeof datetime === 'string' && datetime.match(/.*\+.*/)) {
-        const [, timezone] = datetime.split('+');
+const formatISODate = ISODate => {
+    if(typeof ISODate === 'string'){    
+        const dateElements = String(ISODate).split('-');
+        const reversedElements = dateElements.reverse();
+        const formattedDate = reversedElements.join('/');
 
-        return timezone;
-    }    
-
-    return null;
-}
-
-const getISODateWithoutTimezone = datetime => {
-    if(datetime) {
-        const datetimeBound = 22;
-
-        return datetime.substr(0, datetimeBound);
+        return formattedDate;
     }
 
-    return null;
+    return '';
 }
 
-const isDateValid = date => !isNaN(date.getTime());
+const getInitialDateInput = datetimeProp => {
+    const datetime = getFormattedDate(datetimeProp);
 
+    if(datetime.isValid) {
+        const formattedDate = formatISODate(datetime.toISODate());
+        
+        return formattedDate;
+    }
+
+    return '';
+}
+
+const getInitialTimezoneInput = datetimeProp => {
+    const datetime = getFormattedDate(datetimeProp);
+
+    if(datetime.isValid) {
+        return datetime.zoneName;
+    }
+
+    return '';
+}
+
+/*
+ * Date Time picker component.
+ */
 const DateTimePicker = ({
     id,
     setProps,
     value,
-    style = defaultStyle,
+    dateInputStyle = defaultStyle,
+    timezoneInputStyle,
     datetime: datetimeProp,
     renderTimezone = true,
 }) => {
-    const [timezone] = useState(getTimezoneFromDatetime(datetimeProp));
-    const [datetime, setDatetime] = useState(getISODateWithoutTimezone(datetimeProp));
+    const [datetime, setDatetime] = useState(getFormattedDate(datetimeProp));
+    const [dateInputValue, setDateInputValue] = useState(getInitialDateInput(datetimeProp));
+    const [timezoneInputValue, setTimezoneInputValue] = useState(getInitialTimezoneInput(datetimeProp));
 
-    useEffect(() => {
-        const newTimezone = timezone || '';
-        const newValue = datetime && `${datetime}${newTimezone}`;
+    useEffect(function updateDashValue() {
+        if(datetime.isValid){
+            const stringDatetime = datetime.toString();
 
-        if(!isEqual(newValue, value)){
-            setProps({ value: newValue });
+            if(!isEqual(stringDatetime, value)){
+                setProps({ value: stringDatetime });
+            }
         }
-    }, [datetime, timezone]);
+    }, [datetime]);
 
-    const handleDateChange = event => {
-        const { value } = event.target;
-
-        const date = new Date(value);
-
-        if(isDateValid(date)){
-            const ISODate = date.toISOString();
-
-            const formattedISODate = getISODateWithoutTimezone(ISODate);
-
-            setDatetime(formattedISODate);
+    useEffect(function updateDatetime() {
+        const JSDate = new Date(dateInputValue);
+        let dateOptions;
+        if(timezoneInputValue) {
+            dateOptions = { zone: timezoneInputValue };
         }
-        else {
-            setDatetime(null);
-        }
-    };
 
-    const handleTimezoneChange = () => {
-        // To be implemented
-    }
+        const newDatetime = DateTime.fromJSDate(JSDate, dateOptions);
+
+        setDatetime(newDatetime);
+    }, [dateInputValue, timezoneInputValue]);
 
     return (
         <div id={id}>
             <input
                 type="datetime-local"
-                value={datetimeProp}
-                onChange={handleDateChange}
-                style={style}
+                value={dateInputValue}
+                onChange={event => setDateInputValue(event.target.value)}
+                style={dateInputStyle}
 
             />
             {renderTimezone && (
                 <TimezonePicker
-                    value={timezone}
+                    value={timezoneInputValue}
                     placeholder="Select timezone..."
-                    onChange={handleTimezoneChange}
+                    onChange={setTimezoneInputValue}
+                    style={timezoneInputStyle}
                 />
             )}
         </div>
@@ -106,9 +115,9 @@ DateTimePicker.defaultProps = {
 
 DateTimePicker.propTypes = {
     datetime: PropTypes.string,
-    timezone: PropTypes.string,
     renderTimezone: PropTypes.bool,
-    style: PropTypes.object,
+    dateInputStyle: PropTypes.object,
+    timezoneInputStyle: PropTypes.object,
 
     // Dash props
     id: PropTypes.string,
