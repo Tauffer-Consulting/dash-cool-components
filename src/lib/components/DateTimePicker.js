@@ -88,7 +88,7 @@ DateTimePicker.propTypes = {
     id: PropTypes.string,
 
     /**
-    * The input's current value
+    * The input's current value.
     */
     value: PropTypes.string,
 

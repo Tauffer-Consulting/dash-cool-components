@@ -86,19 +86,19 @@ pip install dash-cool-components
     <strong>Keyed File Browser</strong>
   </summary>
 
-  File and directory browser given a flat keyed list of objects.
-  [Source React component](https://github.com/uptick/react-keyed-file-browser).
+  File and directory browser given a flat keyed list of objects. Implemented with
+  [React Keyed File Browser](https://github.com/uptick/react-keyed-file-browser).
   
   ### Component Properties
     
   **The ID used to identify this component in Dash callbacks.**  
   * id: string
 
-  **A selectedPath that will be printed when this component is rendered**  
+  **The current selected path in the file tree.**  
   * selectedPath: string
 
-  **Array with objects containing files paths and infos**  
-  * value: array
+  **The file tree to be displayed in the browser. Each entry in the array must be an object with the `key` property, which specifies it's location in the tree. Otherproperties are `modified` and `size`. To be able to receive the path selection feedback, you must enter keys for both files and folders.**  
+  * files: array
 
   ```
   import dash
@@ -111,13 +111,15 @@ pip install dash-cool-components
   app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
   dir_dict = [
+      {'key': 'dir1/', 'size': 1},
       {'key': 'dir1/my_image.jpeg', 'size': 2782874},
+      {'key': 'dir2/', 'size': 1}
       {'key': 'dir2/other_image.tif', 'size': 499240007}
   ]
 
   my_component = dash_cool_components.KeyedFileBrowser(
       id='file_explorer',
-      value=dir_dict,
+      files=dir_dict,
   )
   app.layout = html.Div(my_component, style={'width': '500px'})
 
@@ -134,31 +136,33 @@ pip install dash-cool-components
     <strong>Tag Input</strong>
   </summary>
 
-  A tag input component.
-  [Source React component](https://github.com/leekevinyg/react-tag-input).
+  A tag input component. Implemented with [React Tag Input](https://github.com/leekevinyg/react-tag-input).
   
   ### Components Properties
     
   **The ID used to identify this component in Dash callbacks.**  
   * id: string
 
-  **Wrapper style css**  
+  **The component wrapper's style. Can be either a style object or a CSS string.**  
   * wrapperStyle: object  
   
-  **Tag style css**  
+  **The tag's style. Can be either a style object or a CSS string.**  
   * tagStyle: object
 
-  **Input style css**  
+  **The text input's style. Can be either a style object or a CSS string.**  
   * inputStyle: object
 
-  **Delete button style**  
+  **The tag delete button's style. Can be either a style object or a CSS string.**  
   * tagDeleteStyle: object
 
-  **Placeholder**  
+  **Placeholder for the text input.**  
   * placeholder: string
 
-  **Tags Values**
+  **The input's current tags.**
   * value: array
+
+  **Tags to be inserted on the input. The input's atual tags are replaced.**
+  * injectedTags: array
 
 
   ```
