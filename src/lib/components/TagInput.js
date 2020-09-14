@@ -9,14 +9,16 @@ const replaceRefState = (refCurrent, newState, callback) => {
     updater.enqueueReplaceState(refCurrent, newState, callback);
 }
 
-/*
- * Keyword tag component 
+/**
+ * TagInput is an input for creating tags.
+ * The input is fully customizable and its current added tags
+ * can be accessed via the the `value` property.
  */
 const TagInput = ({ wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagStyle, injectedTags, setProps, id }) => {
     const [tags, setTags] = useState([]);
     const tagInputRef = useRef(null);
 
-    const haveTagsBeenInjected = useCallback(() => injectedTags && !isEqual(tags, injectedTags), [injectedTags]);
+    const haveTagsBeenInjected = () => injectedTags && !isEqual(tags, injectedTags);
 
     const onTagsChanged = useCallback(tags => {
         setTags(tags);
@@ -50,21 +52,71 @@ const TagInput = ({ wrapperStyle, inputStyle, tagDeleteStyle, placeholder, tagSt
 }
 
 TagInput.propTypes = {
-    wrapperStyle: PropTypes.object,
-    tagStyle: PropTypes.object,
-    inputStyle: PropTypes.object,
-    tagDeleteStyle: PropTypes.object,
-    placeholder: PropTypes.string,
-
-    // Use this prop to force the render of your tags
-    injectedTags: PropTypes.array,
-
-    // Dash props
+    /**
+    * The ID of this component, used to identify dash components
+    * in callbacks. The ID needs to be unique across all of the
+    * components in an app.
+    */
     id: PropTypes.string,
+
+    /**
+     * Dash-assigned callback that gets fired when the value changes.
+     */
     setProps: PropTypes.func,
 
-    // Dash Feedback
-    value: PropTypes.array,
+    /**
+    * The input's current tags.
+    */
+    value: PropTypes.arrayOf(PropTypes.shape({
+        index: PropTypes.number,
+        displayValue: PropTypes.string,
+    })),
+
+    /**
+    * The component wrapper's style.
+    */
+    wrapperStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+    ]),
+
+    /**
+    * The tag's style.
+    */
+    tagStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+    ]),
+
+    /**
+    * The text input's style.
+    */
+    inputStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+    ]),
+
+    /**
+    * The tag delete button's style.
+    */
+    tagDeleteStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string,
+    ]),
+
+    /**
+    * Placeholder for the text input.
+    */
+    placeholder: PropTypes.string,
+
+    /**
+    * Inject these tags into the component. They will be rendered on
+    * the next React commit. This replaces the component's actual tags.
+    */
+    injectedTags: PropTypes.arrayOf(PropTypes.shape({
+        index: PropTypes.number,
+        displayValue: PropTypes.string,
+    })),
 };
 
 

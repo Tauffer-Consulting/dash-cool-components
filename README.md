@@ -134,31 +134,33 @@ pip install dash-cool-components
     <strong>Tag Input</strong>
   </summary>
 
-  A tag input component.
-  [Source React component](https://github.com/leekevinyg/react-tag-input).
+  A tag input component. Implemented with [React Tag Input](https://github.com/leekevinyg/react-tag-input).
   
   ### Components Properties
     
   **The ID used to identify this component in Dash callbacks.**  
   * id: string
 
-  **Wrapper style css**  
+  **The component wrapper's style. Can be either a style object or a CSS string.**  
   * wrapperStyle: object  
   
-  **Tag style css**  
+  **The tag's style. Can be either a style object or a CSS string.**  
   * tagStyle: object
 
-  **Input style css**  
+  **The text input's style. Can be either a style object or a CSS string.**  
   * inputStyle: object
 
-  **Delete button style**  
+  **The tag delete button's style. Can be either a style object or a CSS string.**  
   * tagDeleteStyle: object
 
-  **Placeholder**  
+  **Placeholder for the text input.**  
   * placeholder: string
 
-  **Tags Values**
+  **The input's current tags.**
   * value: array
+
+  **Tags to be inserted on the input. The input's atual tags are replaced.**
+  * injectedTags: array
 
 
   ```
