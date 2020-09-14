@@ -13,7 +13,7 @@ Keyword arguments:
 - id (string; optional): The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.
-- value (string; optional): The input's current value
+- value (string; optional): The input's current value.
 - defaultValue (string; optional): The input's default value. Accepts values on the ISO format.
 - renderTimezone (boolean; default True): Defines if the timezone input should be rendered. Defaults to true.
 - style (dict | string; optional): The container's style.
