@@ -25,8 +25,8 @@ pip install dash-cool-components
     <strong>Datetime Picker</strong>
   </summary>
 
-  A date-time-timezone picker input. Implemented with
-  [Timezone Picker React component](https://www.npmjs.com/package/react-bootstrap-timezone-picker).
+  A date-time-timezone picker input. Implemented with the [React Datepicker](https://www.npmjs.com/package/react-datepicker) and
+  [Timezone Picker React](https://www.npmjs.com/package/react-bootstrap-timezone-picker) components.
   
   ### Component Properties:  
     
@@ -37,7 +37,13 @@ pip install dash-cool-components
   * value: string
   
   **Defines if the timezone input should be rendered. Defaults to true.**  
-  * renderTimezone: boolean  
+  * renderTimezone: boolean
+
+  **The date input placeholder.**
+  * placeholder: string
+
+  **The timezone input placeholder.**
+  * timezonePlaceholder: string
 
   **The component container's style. Can be a style object or a css string.**  
   * style: object | string

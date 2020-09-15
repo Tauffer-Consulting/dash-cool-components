@@ -13,8 +13,9 @@ app.layout = dbc.Container([
             width={'size':4}
         ),
         dbc.Col(
-            dash_cool_components.KeyedFileBrowser(
-                id="input"
+            dash_cool_components.DateTimePicker(
+                id="input",
+                defaultValue="2020-09-02T11:00:00.000-07:00"
             ), width={'size':4}
         ),
         dbc.Col(
@@ -26,10 +27,10 @@ app.layout = dbc.Container([
 
 @app.callback(
     Output('hidden', 'children'),
-    [Input('input', 'selectedPath')]
+    [Input('input', 'value')]
 )
-def timezone_test(selectedPath):
-    print('out', selectedPath)
+def timezone_test(value):
+    print('out', value)
 
 """ @app.callback(Output('output', 'injectedTags'), [Input('input', 'value')])
 def display_output(value):

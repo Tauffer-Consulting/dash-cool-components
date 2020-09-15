@@ -10,8 +10,9 @@ DateTimePicker is a datetime input component. The inputs can be initialized wit
 }
 
 \usage{
-''DateTimePicker(id=NULL, value=NULL, defaultValue=NULL, renderTimezone=NULL,
-style=NULL, dateInputStyle=NULL, timezoneInputStyle=NULL)
+''DateTimePicker(id=NULL, value=NULL, defaultValue=NULL, placeholder=NULL,
+timezonePlaceholder=NULL, renderTimezone=NULL, style=NULL,
+dateInputStyle=NULL, timezoneInputStyle=NULL)
 }
 
 \arguments{
@@ -22,6 +23,10 @@ components in an app.}
 \item{value}{Character. The input's current value.}
 
 \item{defaultValue}{Character. The input's default value. Accepts values on the ISO format.}
+
+\item{placeholder}{Character. The date input placeholder.}
+
+\item{timezonePlaceholder}{Character. The timezone input placeholder.}
 
 \item{renderTimezone}{Logical. Defines if the timezone input should be rendered. Defaults to true.}
 

@@ -14,23 +14,14 @@ export const formatISODate = ISODate => {
     return '';
 }
 
-export const formatFromDMYtoMDY = dateString => {
-    const [day, month, ...rest] = dateString.split('/');
-    const formatted = `${month}/${day}/${rest && rest.join('/')}`;
-
-    return formatted;
-}
-
 export const getInitialDateInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
 
     if(datetime.isValid) {
-        const formattedDate = formatISODate(datetime.toISODate());
-        
-        return formattedDate;
+        return datetime.toJSDate();
     }
 
-    return '';
+    return null;
 }
 
 export const getInitialTimezoneInput = initialDatetime => {
