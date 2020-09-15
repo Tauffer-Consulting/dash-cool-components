@@ -36,6 +36,28 @@
         "required": false,
         "description": "The input's default value. Accepts values on the ISO format."
       },
+      "placeholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The date input placeholder.",
+        "defaultValue": {
+          "value": "'Select date...'",
+          "computed": false
+        }
+      },
+      "timezonePlaceholder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The timezone input placeholder.",
+        "defaultValue": {
+          "value": "'Select timezone...'",
+          "computed": false
+        }
+      },
       "renderTimezone": {
         "type": {
           "name": "bool"

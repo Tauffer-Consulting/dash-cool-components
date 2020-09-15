@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import DatePicker, { registerLocale } from 'react-datepicker';
 import TimezonePicker from 'react-bootstrap-timezone-picker';
-
 import { DateTime } from 'luxon';
-import { formatFromDMYtoMDY, getFormattedDate, getInitialDateInput, getInitialTimezoneInput } from '../utils/DatePicker';
+
+import ptBR from 'date-fns/locale/pt-BR';
+import { getFormattedDate, getInitialDateInput, getInitialTimezoneInput } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
 import { Container, Input } from './Styles/DateTimePicker';
 
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
+registerLocale('pt-BR', ptBR);
 /**
  * DateTimePicker is a datetime input component.
  * The inputs can be initialized with the `defaultValue` property and the
@@ -20,6 +24,8 @@ const DateTimePicker = ({
     id,
     setProps,
     value,
+    placeholder,
+    timezonePlaceholder,
     style,
     dateInputStyle,
     timezoneInputStyle,
@@ -41,31 +47,45 @@ const DateTimePicker = ({
     }, [datetime]);
 
     useEffect(function updateDatetime() {
-        const dateInAcceptableFormat = formatFromDMYtoMDY(dateInputValue);
-        const JSDate = new Date(dateInAcceptableFormat);
 
         let dateOptions;
         if(timezoneInputValue) {
             dateOptions = { zone: timezoneInputValue };
         }
 
-        const newDatetime = DateTime.fromJSDate(JSDate, dateOptions);
+        const newDatetime = DateTime.fromJSDate(dateInputValue, dateOptions);
 
         setDatetime(newDatetime);
     }, [dateInputValue, timezoneInputValue]);
 
     return (
         <Container id={id} style={style}>
-            <Input
-                type="datetime-local"
-                value={dateInputValue}
-                onChange={event => setDateInputValue(event.target.value)}
-                style={dateInputStyle}
+            <DatePicker
+                selected={dateInputValue}
+                locale="pt-BR"
+                showTimeInput
+                customInput={<Input style={dateInputStyle} />}
+                dateFormat="dd/MM/yyyy hh:mm"
+                placeholderText={placeholder}
+                popperPlacement="bottom"
+                isClearable
+                popperModifiers={{
+                    flip: {
+                        behavior: ['bottom'],
+                    },
+                    preventOverflow: {
+                        enabled: false,
+                    },
+                    hide: {
+                        enabled: false,
+                    },
+                }}
+                onChange={setDateInputValue}
             />
             {renderTimezone && (
                 <TimezonePicker
                     value={timezoneInputValue}
-                    placeholder="Select timezone..."
+                    placeholder={timezonePlaceholder}
                     onChange={setTimezoneInputValue}
                     style={timezoneInputStyle}
                 />
@@ -77,6 +97,8 @@ const DateTimePicker = ({
 DateTimePicker.defaultProps = {
     value: null,
     renderTimezone: true,
+    placeholder: 'dd/MM/yyyy hh:mm',
+    timezonePlaceholder: 'Select timezone...',
 };
 
 DateTimePicker.propTypes = {
@@ -101,6 +123,16 @@ DateTimePicker.propTypes = {
     * The input's default value. Accepts values on the ISO format.
     */
     defaultValue: PropTypes.string,
+
+    /**
+    * The date input placeholder.
+    */
+    placeholder: PropTypes.string,
+
+    /**
+    * The timezone input placeholder.
+    */
+    timezonePlaceholder: PropTypes.string,
 
     /**
     * Defines if the timezone input should be rendered. Defaults to true.
