@@ -1,3 +1,4 @@
+import dash_cool_components
 import dash
 from dash.dependencies import Input, Output
 import dash_html_components as html
@@ -35,7 +36,7 @@ app.layout = dbc.Container([
 ], style={'marginTop': '200px'})
 
 @app.callback(
-    Output('output', 'value'), # Output('output', 'value')
+    Output('output', 'value'),
     [Input('input', 'selectedPath')]
 )
 def timezone_test(value):

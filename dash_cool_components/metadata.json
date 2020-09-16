@@ -1,6 +1,6 @@
 {
   "src/lib/components/DateTimePicker.js": {
-    "description": "DateTimePicker is a datetime input component.\r\nThe inputs can be initialized with the `defaultValue` property and the\r\ninput date, on ISO format, is specified with the `value` property.",
+    "description": "DateTimePicker is a datetime input component.\nThe inputs can be initialized with the `defaultValue` property and the\ninput date, on ISO format, is specified with the `value` property.",
     "displayName": "DateTimePicker",
     "methods": [],
     "props": {
@@ -9,7 +9,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
       },
       "value": {
         "type": {
@@ -43,7 +43,7 @@
         "required": false,
         "description": "The date input placeholder.",
         "defaultValue": {
-          "value": "'Select date...'",
+          "value": "'dd/MM/yyyy hh:mm'",
           "computed": false
         }
       },
@@ -109,7 +109,7 @@
     }
   },
   "src/lib/components/KeyedFileBrowser.js": {
-    "description": "KeyedFileBrowser is a component that renders a file browser based on a entry JSON.\r\nThe files and folders can be selected and the selected path can be\r\naccessed via the `selectedPath` property.",
+    "description": "KeyedFileBrowser is a component that renders a file browser based on a entry JSON.\nThe files and folders can be selected and the selected path can be\naccessed via the `selectedPath` property.",
     "displayName": "KeyedFileBrowser",
     "methods": [],
     "props": {
@@ -118,7 +118,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
       },
       "selectedPath": {
         "type": {
@@ -156,7 +156,7 @@
           }
         },
         "required": false,
-        "description": "The file tree to be displayed in the browser.\r\nEach entry in the array must be an object with the `key`\r\nproperty, which specifies it's location in the tree. Other\r\nproperties are `modified` and `size`.\r\nTo be able to receive the path selection feedback, you must\r\nenter keys for both files and folders.",
+        "description": "The file tree to be displayed in the browser.\nEach entry in the array must be an object with the `key`\nproperty, which specifies it's location in the tree. Other\nproperties are `modified` and `size`.\nTo be able to receive the path selection feedback, you must\nenter keys for both files and folders.",
         "defaultValue": {
           "value": "[]",
           "computed": false
@@ -165,7 +165,7 @@
     }
   },
   "src/lib/components/TagInput.js": {
-    "description": "TagInput is an input for creating tags.\r\nThe input is fully customizable and its current added tags\r\ncan be accessed via the the `value` property.",
+    "description": "TagInput is an input for creating tags.\nThe input is fully customizable and its current added tags\ncan be accessed via the the `value` property.",
     "displayName": "TagInput",
     "methods": [],
     "props": {
@@ -174,7 +174,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The ID of this component, used to identify dash components\r\nin callbacks. The ID needs to be unique across all of the\r\ncomponents in an app."
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
       },
       "setProps": {
         "type": {
@@ -288,7 +288,7 @@
           }
         },
         "required": false,
-        "description": "Inject these tags into the component. They will be rendered on\r\nthe next React commit. This replaces the component's actual tags."
+        "description": "Inject these tags into the component. They will be rendered on\nthe next React commit. This replaces the component's actual tags."
       }
     }
   }

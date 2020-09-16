@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-tagInput <- function(id=NULL, wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL, tagDeleteStyle=NULL, placeholder=NULL, value=NULL) {
+tagInput <- function(id=NULL, value=NULL, wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL, tagDeleteStyle=NULL, placeholder=NULL, injectedTags=NULL) {
     
-    props <- list(id=id, wrapperStyle=wrapperStyle, tagStyle=tagStyle, inputStyle=inputStyle, tagDeleteStyle=tagDeleteStyle, placeholder=placeholder, value=value)
+    props <- list(id=id, value=value, wrapperStyle=wrapperStyle, tagStyle=tagStyle, inputStyle=inputStyle, tagDeleteStyle=tagDeleteStyle, placeholder=placeholder, injectedTags=injectedTags)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ tagInput <- function(id=NULL, wrapperStyle=NULL, tagStyle=NULL, inputStyle=NULL,
         props = props,
         type = 'TagInput',
         namespace = 'dash_cool_components',
-        propNames = c('id', 'wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'value'),
+        propNames = c('id', 'value', 'wrapperStyle', 'tagStyle', 'inputStyle', 'tagDeleteStyle', 'placeholder', 'injectedTags'),
         package = 'dashCoolComponents'
         )
 

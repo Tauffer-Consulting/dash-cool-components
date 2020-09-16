@@ -15,7 +15,7 @@ in callbacks. The ID needs to be unique across all of the
 components in an app.
 - value (string; optional): The input's current value.
 - defaultValue (string; optional): The input's default value. Accepts values on the ISO format.
-- placeholder (string; default 'Select date...'): The date input placeholder.
+- placeholder (string; default 'dd/MM/yyyy hh:mm'): The date input placeholder.
 - timezonePlaceholder (string; default 'Select timezone...'): The timezone input placeholder.
 - renderTimezone (boolean; default True): Defines if the timezone input should be rendered. Defaults to true.
 - style (dict | string; optional): The container's style.
