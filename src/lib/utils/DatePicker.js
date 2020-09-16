@@ -14,7 +14,7 @@ export const formatISODate = ISODate => {
     return '';
 }
 
-export const getInitialDateInput = initialDatetime => {
+export const getFormattedDateInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
 
     if(datetime.isValid) {
@@ -24,7 +24,7 @@ export const getInitialDateInput = initialDatetime => {
     return null;
 }
 
-export const getInitialTimezoneInput = initialDatetime => {
+export const getFormattedTimezoneInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
 
     if(datetime.isValid) {

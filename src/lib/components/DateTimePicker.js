@@ -6,7 +6,7 @@ import TimezonePicker from 'react-bootstrap-timezone-picker';
 import { DateTime } from 'luxon';
 
 import ptBR from 'date-fns/locale/pt-BR';
-import { getFormattedDate, getInitialDateInput, getInitialTimezoneInput } from '../utils/DatePicker';
+import { getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
 import { Container, Input } from './Styles/DateTimePicker';
@@ -33,8 +33,16 @@ const DateTimePicker = ({
     renderTimezone,
 }) => {
     const [datetime, setDatetime] = useState(getFormattedDate(defaultValue));
-    const [dateInputValue, setDateInputValue] = useState(getInitialDateInput(defaultValue));
-    const [timezoneInputValue, setTimezoneInputValue] = useState(getInitialTimezoneInput(defaultValue));
+    const [dateInputValue, setDateInputValue] = useState(getFormattedDateInput(defaultValue));
+    const [timezoneInputValue, setTimezoneInputValue] = useState(getFormattedTimezoneInput(defaultValue));
+
+    useEffect(function updateStates() {
+        const newDatetime = getFormattedDate(defaultValue);
+        if(!isEqual(newDatetime, datetime)) {
+            setDateInputValue(getFormattedDateInput(defaultValue));
+            setTimezoneInputValue(getFormattedTimezoneInput(defaultValue));
+        }
+    }, [defaultValue])
 
     useEffect(function updateDateValue() {
         if(datetime.isValid){
