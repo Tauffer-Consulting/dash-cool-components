@@ -108,7 +108,7 @@ pip install dash-cool-components
     
   [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_KeyedFileBrowser.py)
   
-  ![](images/filebrowser.gif.gif)
+  ![](images/filebrowser.gif)
 </details>
 
 <details>
