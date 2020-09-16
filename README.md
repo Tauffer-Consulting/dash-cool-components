@@ -105,36 +105,10 @@ pip install dash-cool-components
 
   **The file tree to be displayed in the browser. Each entry in the array must be an object with the `key` property, which specifies it's location in the tree. Otherproperties are `modified` and `size`. To be able to receive the path selection feedback, you must enter keys for both files and folders.**  
   * files: array
-
-  ```
-  import dash
-  import dash_html_components as html
-  import dash_bootstrap_components as dbc
-  import dash_cool_components
-
-
-  external_stylesheets = [dbc.themes.BOOTSTRAP]
-  app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
-  dir_dict = [
-      {'key': 'dir1/', 'size': 1},
-      {'key': 'dir1/my_image.jpeg', 'size': 2782874},
-      {'key': 'dir2/', 'size': 1}
-      {'key': 'dir2/other_image.tif', 'size': 499240007}
-  ]
-
-  my_component = dash_cool_components.KeyedFileBrowser(
-      id='file_explorer',
-      files=dir_dict,
-  )
-  app.layout = html.Div(my_component, style={'width': '500px'})
-
-  if __name__ == '__main__':
-      app.run_server(debug=True)
-
-  ```
-
-  ![](images/gif_keyedfilebrowser.gif)
+    
+  [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_KeyedFileBrowser.py)
+  
+  ![](images/filebrowser.gif.gif)
 </details>
 
 <details>
@@ -169,22 +143,8 @@ pip install dash-cool-components
 
   **Tags to be inserted on the input. The input's atual tags are replaced.**
   * injectedTags: array
-
-
-  ```
-  import dash
-  import dash_html_components as html
-  import dash_cool_components
-
-  app = dash.Dash(__name__)
-
-  my_component = dash_cool_components.Keywords(id='tag_input')
-  app.layout = html.Div(my_component)
-
-  if __name__ == '__main__':
-      app.run_server(debug=True)
-
-  ```
-
-  ![](images/gif_taginput.gif)
+    
+  [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_TagInput.py)
+ 
+  ![](images/taginput.gif)
 </details>
