@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import DatePicker, { registerLocale } from 'react-datepicker';
-import TimezonePicker from 'react-bootstrap-timezone-picker';
 import { DateTime } from 'luxon';
 
 import ptBR from 'date-fns/locale/pt-BR';
 import { getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
-import { Container, Input } from './Styles/DateTimePicker';
+import { Container, Input, Select } from './Styles/DateTimePicker';
 
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import utcOptions from '../data/utcOptions';
 
 registerLocale('pt-BR', ptBR);
 /**
@@ -36,8 +36,9 @@ const DateTimePicker = ({
     const [dateInputValue, setDateInputValue] = useState(getFormattedDateInput(defaultValue));
     const [timezoneInputValue, setTimezoneInputValue] = useState(getFormattedTimezoneInput(defaultValue));
 
-    useEffect(function updateStates() {
+    useEffect(function onDefaultValueChange() {
         const newDatetime = getFormattedDate(defaultValue);
+        
         if(!isEqual(newDatetime, datetime)) {
             setDateInputValue(getFormattedDateInput(defaultValue));
             setTimezoneInputValue(getFormattedTimezoneInput(defaultValue));
@@ -55,7 +56,6 @@ const DateTimePicker = ({
     }, [datetime]);
 
     useEffect(function updateDatetime() {
-
         let dateOptions;
         if(timezoneInputValue) {
             dateOptions = { zone: timezoneInputValue };
@@ -91,12 +91,16 @@ const DateTimePicker = ({
                 onChange={setDateInputValue}
             />
             {renderTimezone && (
-                <TimezonePicker
+                <Select
                     value={timezoneInputValue}
-                    placeholder={timezonePlaceholder}
-                    onChange={setTimezoneInputValue}
+                    onChange={event => setTimezoneInputValue(event.target.value)}
                     style={timezoneInputStyle}
-                />
+                >
+                    <option value="">{timezonePlaceholder}</option>
+                    {utcOptions.map(option => (
+                        <option key={option} value={option}>{option}</option>
+                    ))}
+                </Select>
             )}
         </Container>
     );

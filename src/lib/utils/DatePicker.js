@@ -1,18 +1,7 @@
 import { DateTime } from 'luxon';
+import { luxonZoneNames } from '../data/utcOptions';
 
-export const getFormattedDate = date => DateTime.fromISO(date);
-
-export const formatISODate = ISODate => {
-    if(typeof ISODate === 'string'){    
-        const dateElements = String(ISODate).split('-');
-        const reversedElements = dateElements.reverse();
-        const formattedDate = reversedElements.join('/');
-
-        return formattedDate;
-    }
-
-    return '';
-}
+export const getFormattedDate = date => DateTime.fromISO(date, { setZone: true });
 
 export const getFormattedDateInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
@@ -27,8 +16,8 @@ export const getFormattedDateInput = initialDatetime => {
 export const getFormattedTimezoneInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
 
-    if(datetime.isValid) {
-        return datetime.zoneName;
+    if(luxonZoneNames[datetime.zoneName]) {
+        return luxonZoneNames[datetime.zoneName];
     }
 
     return '';
