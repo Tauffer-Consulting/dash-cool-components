@@ -28,13 +28,12 @@ app.layout = dbc.Container([
 ], style={'marginTop': '200px'})
 
 @app.callback(
-    Output('output', 'defaultValue'), # Output('output', 'value')
+    Output('output', 'defaultValue'),
     [Input('input', 'value')]
 )
 def timezone_test(value):
     print('out', value)
     return value
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
