@@ -13,14 +13,10 @@ app.layout = dbc.Container([
             width={'size':4}
         ),
         dbc.Col(
-            [dash_cool_components.DateTimePicker(
-                id="input",
-                defaultValue="2020-09-02T11:00:00.000-03:00"
-            ),
             dash_cool_components.DateTimePicker(
-                id="input2",
-                defaultValue="2020-09-02T11:00:00.000-07:00"
-            )], width={'size':4}
+                id="input",
+                defaultValue="2020-09-02T14:00:00.000-05:00"
+            ), width={'size':4}
         ),
         dbc.Col(
             dash_cool_components.DateTimePicker(
