@@ -30,29 +30,16 @@ pip install dash-cool-components
   
   ### Component Properties:  
     
-  **The ID used to identify this component in Dash callbacks.**
-  * id: string  
-  
-  **The input's current value, on ISO format with date, time and timezone.**  
-  * value: string
-  
-  **Defines if the timezone input should be rendered. Defaults to true.**  
-  * renderTimezone: boolean
-
-  **The date input placeholder.**
-  * placeholder: string
-
-  **The timezone input placeholder.**
-  * timezonePlaceholder: string
-
-  **The component container's style. Can be a style object or a css string.**  
-  * style: object | string
-
-  **The date input's style. Can be a style object or a css string.**  
-  * dateInputStyle: object | string
-
-  **The timezone container's style. Must be a style object.**  
-  * timezoneInputStyle: object  
+  | Argument | Value | Description |
+  |---|---|---|
+  | id | string | The ID used to identify this component in Dash callbacks. |
+  | value | string | The input's current value, on ISO format with date, time and timezone. |
+  | renderTimezone | boolean | Defines if the timezone input should be rendered. Defaults to true. |
+  | placeholder | string | The date input placeholder. |
+  | timezonePlaceholder | string | The timezone input placeholder. |
+  | style | object or string | The component container's style. Can be a style object or a css string. |
+  | dateInputStyle | object or string | The date input's style. Can be a style object or a css string. |
+  | timezoneInputStyle | object | The timezone container's style. Must be a style object. |
 
   [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_DateTimePicker.py)
 
@@ -69,15 +56,13 @@ pip install dash-cool-components
   [React Keyed File Browser](https://github.com/uptick/react-keyed-file-browser).
   
   ### Component Properties
-    
-  **The ID used to identify this component in Dash callbacks.**  
-  * id: string
-
-  **The current selected path in the file tree.**  
-  * selectedPath: string
-
-  **The file tree to be displayed in the browser. Each entry in the array must be an object with the `key` property, which specifies it's location in the tree. Otherproperties are `modified` and `size`. To be able to receive the path selection feedback, you must enter keys for both files and folders.**  
-  * files: array
+  
+  | Argument | Value | Description |
+  |---|---|---|
+  | id | string | The ID used to identify this component in Dash callbacks. |
+  | selectedPath | string | The current selected path in the file tree. |
+  | files | array | The file tree to be displayed in the browser. Each entry in the array must be an object with the `key` property, which specifies it's location in the tree. Otherproperties are `modified` and `size`. To be able to receive the path selection feedback, you must enter keys for both files and folders. |
+   
     
   [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_KeyedFileBrowser.py)
   
@@ -92,30 +77,19 @@ pip install dash-cool-components
   A tag input component. Implemented with [React Tag Input](https://github.com/leekevinyg/react-tag-input).
   
   ### Components Properties
-    
-  **The ID used to identify this component in Dash callbacks.**  
-  * id: string
-
-  **The component wrapper's style. Can be either a style object or a CSS string.**  
-  * wrapperStyle: object  
   
-  **The tag's style. Can be either a style object or a CSS string.**  
-  * tagStyle: object
+  | Argument | Value | Description |
+  |---|---|---|
+  | id | string | The ID used to identify this component in Dash callbacks |
+  | wrapperStyle | object or string | The component wrapper's style. Can be either a style object or a CSS string. |
+  | tagStyle | object or string | The tag's style. Can be either a style object or a CSS string |
+  | inputStyle | object or string | The text input's style. Can be either a style object or a CSS string. |
+  | tagDeleteStyle | object or string | The tag delete button's style. Can be either a style object or a CSS string. |
+  | placeholder | string | Placeholder for the text input |
+  | placeholder | string | Placeholder for the text input |
+  | value | array | The input's current tags array of objects. e.g [{"index": 0, "displayValue": "Tag"}] |
+  | injectedTags | array | Tags to be inserted on the input. The input's atual tags are replaced. |
 
-  **The text input's style. Can be either a style object or a CSS string.**  
-  * inputStyle: object
-
-  **The tag delete button's style. Can be either a style object or a CSS string.**  
-  * tagDeleteStyle: object
-
-  **Placeholder for the text input.**  
-  * placeholder: string
-
-  **The input's current tags.**
-  * value: array
-
-  **Tags to be inserted on the input. The input's atual tags are replaced.**
-  * injectedTags: array
     
   [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_TagInput.py)
  
