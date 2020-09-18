@@ -9,31 +9,35 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 app.layout = dbc.Container([
     dbc.Row([
-        dbc.Col(
-            width={'size':4}
-        ),
-        dbc.Col(
+        dbc.Col([
+            dbc.Label('Input component'),
             dash_cool_components.DateTimePicker(
                 id="input",
                 defaultValue="2020-09-02T14:00:00.000-05:00"
-            ), width={'size':4}
-        ),
-        dbc.Col(
+            )
+        ], width={'size':4}),
+        dbc.Col([
+            dbc.Label('Output component'),
             dash_cool_components.DateTimePicker(
                 id="output",
-            ), width={'size':4}
-        )
+            )
+        ], width={'size':4}),
+        dbc.Col([
+            dbc.Label('Output String'),
+            dbc.Input(id='output-text')
+            
+        ],width={'size':4}),
     ]),
     html.Div(id='hidden')
 ], style={'marginTop': '200px'})
 
 @app.callback(
-    Output('output', 'defaultValue'),
+    [Output('output', 'defaultValue'), Output('output-text', 'value')],
     [Input('input', 'value')]
 )
 def timezone_test(value):
     print('out', value)
-    return value
+    return value, value
 
 if __name__ == '__main__':
     app.run_server(debug=True)

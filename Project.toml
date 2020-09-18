@@ -1,8 +1,8 @@
 
 name = "DashCoolComponents"
-uuid = "1b08a953-4be3-4667-9a23-ade443f442ad"
+uuid = "1b08a953-4be3-4667-9a23-d7eecd51f434"
 authors = ["Luiz Tauffer, Vinicius Camozzato Vaz and Raul Rosá <vinicvaz.dev@gmail.com>"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 Dash = "1b08a953-4be3-4667-9a23-3db579824955"

@@ -54,36 +54,9 @@ pip install dash-cool-components
   **The timezone container's style. Must be a style object.**  
   * timezoneInputStyle: object  
 
-  ```
-  import dash
-  import dash_html_components as html
-  import dash_cool_components
+  [Example File](https://github.com/Tauffer-Consulting/dash-cool-components/blob/master/example_DateTimePicker.py)
 
-  app = dash.Dash(__name__)
-
-  app.layout = html.Div([
-      dash_cool_components.DateTimePicker(
-              id='timezone',
-              renderTimezone=True,
-          ), width={'size':4}
-      html.Div(id='output')
-  ])
-  
-  @app.callback(Output('output', 'children'), [Input('input', 'value')])
-  def display_output(value):
-      if value is not None:
-          output_div = html.Div([
-              html.H4('Datetime: {}'.format(value['datetime'])),
-              html.H4('Timezone: {}'.format(value['timezone']))
-          ])
-          return output_div
-
-  if __name__ == '__main__':
-      app.run_server(debug=True)
-
-  ```
-
-  ![](images/gif_datetimetimezonepicker.gif)
+  ![](images/datetimepicker.gif)
 </details>
 
 
