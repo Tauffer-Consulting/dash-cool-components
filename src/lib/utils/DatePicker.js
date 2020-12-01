@@ -6,10 +6,13 @@ window.DateTime = DateTime;
 export const getFormattedDate = date => DateTime.fromISO(date, { setZone: true });
 
 export const getDateWithoutTimezone = dateString => {
-    const SUBS_LIMIT = 23;
-    
-    if(dateString && typeof dateString === "string") {
-        return dateString.substr(0, SUBS_LIMIT);
+    const re = /^(\d{4}\-\d\d\-\d\d([tT][\d:\.]*)?)/;
+
+    if (dateString && typeof dateString === "string") {
+        const regexArray = dateString.match(re)
+
+        if (regexArray) return regexArray[0];
+        return null;
     }
 
     return null;
@@ -19,7 +22,7 @@ export const getFormattedDateInput = initialDatetime => {
     const dateWithoutZone = getDateWithoutTimezone(initialDatetime);
     const datetime = getFormattedDate(dateWithoutZone);
 
-    if(datetime.isValid) {
+    if (datetime.isValid) {
         return datetime.toJSDate();
     }
 
@@ -29,7 +32,7 @@ export const getFormattedDateInput = initialDatetime => {
 export const getFormattedTimezoneInput = initialDatetime => {
     const datetime = getFormattedDate(initialDatetime);
 
-    if(luxonZoneNames[datetime.zoneName]) {
+    if (luxonZoneNames[datetime.zoneName]) {
         return luxonZoneNames[datetime.zoneName];
     }
 
@@ -44,7 +47,7 @@ export const getLuxonZone = option => {
 }
 
 export const appendTimezone = (date, zoneName) => {
-    if(zoneName) {
+    if (zoneName) {
         const luxonZoneName = getLuxonZone(zoneName);
         const newDate = date.setZone(luxonZoneName, { keepLocalTime: true });
         return newDate;

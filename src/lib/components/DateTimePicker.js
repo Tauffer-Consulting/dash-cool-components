@@ -39,8 +39,8 @@ const DateTimePicker = ({
 
     useEffect(function onDefaultValueChange() {
         const newDatetime = getFormattedDate(defaultValue);
-        
-        if(!isEqual(newDatetime, datetime)) {
+
+        if (!isEqual(newDatetime, datetime)) {
             const newDateInputValue = getFormattedDateInput(defaultValue);
             const newTimezoneInputValue = getFormattedTimezoneInput(defaultValue);
 
@@ -50,10 +50,10 @@ const DateTimePicker = ({
     }, [defaultValue])
 
     useEffect(function updateDateValue() {
-        if(datetime.isValid){
+        if (datetime.isValid) {
             const stringDatetime = datetime.toString();
 
-            if(!isEqual(stringDatetime, value)){
+            if (!isEqual(stringDatetime, value)) {
                 setProps({ value: stringDatetime });
             }
         }
