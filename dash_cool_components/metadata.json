@@ -161,6 +161,30 @@
           "value": "[]",
           "computed": false
         }
+      },
+      "momentFiles": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "key": {
+                "name": "string",
+                "required": true
+              },
+              "modified": {
+                "name": "number",
+                "required": false
+              },
+              "size": {
+                "name": "number",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": ""
       }
     }
   },

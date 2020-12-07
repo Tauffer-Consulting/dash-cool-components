@@ -9,9 +9,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 dir_dict = [
     {'key': 'dir1/', 'size': 1},
-    {'key': 'dir1/my_image.jpeg', 'size': 2782874},
+    {'key': 'dir1/my_image.jpeg', 'modified': 141, 'size': 2782874},
     {'key': 'dir2/', 'size': 1},
-    {'key': 'dir2/other_image.tif', 'size': 499240007}
+    {'key': 'dir2/other_image.tif', 'modified': 100, 'size': 499240007}
 ]
 
 app.layout = dbc.Container([
@@ -30,17 +30,32 @@ app.layout = dbc.Container([
             dbc.Input(
                 id="output",
             ),
-        ], width={'size':4})
+        ], width={'size':4}),
+        dbc.Col(
+            dbc.Button('Update files tree', id='update_files_tree'),
+            width={'size':12}
+        )
     ]),
-    html.Div(id='hidden')
 ], style={'marginTop': '200px'})
+
+@app.callback(
+    Output('input', 'files'),
+    [Input('update_files_tree', 'n_clicks')]
+)
+def update_files_tree(click):
+    if click:
+        global dir_dict
+        dir_dict.append({'key': 'add_file.jpg', 'modified': 100, 'size': 499240007})
+        return dir_dict
+
+    return dash.no_update
 
 @app.callback(
     Output('output', 'value'),
     [Input('input', 'selectedPath')]
 )
 def timezone_test(value):
-    print('out', value)
+    #print('out', value)
     return value
 
 

@@ -10,7 +10,7 @@ KeyedFileBrowser is a component that renders a file browser based on a entry JSO
 }
 
 \usage{
-keyedFileBrowser(id=NULL, selectedPath=NULL, files=NULL)
+keyedFileBrowser(id=NULL, selectedPath=NULL, files=NULL, momentFiles=NULL)
 }
 
 \arguments{
@@ -30,6 +30,12 @@ property, which specifies it's location in the tree. Other
 properties are `modified` and `size`.
 To be able to receive the path selection feedback, you must
 enter keys for both files and folders.}
+
+\item{momentFiles}{List of lists containing elements 'key', 'modified', 'size'.
+those elements have the following types:
+  - key (character; required)
+  - modified (numeric; optional)
+  - size (numeric; optional)s. }
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

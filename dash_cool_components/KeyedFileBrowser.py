@@ -23,14 +23,19 @@ enter keys for both files and folders. files has the following type: list of dic
 Those keys have the following types:
   - key (string; required)
   - modified (number; optional)
+  - size (number; optional)
+- momentFiles (dict; optional): momentFiles has the following type: list of dicts containing keys 'key', 'modified', 'size'.
+Those keys have the following types:
+  - key (string; required)
+  - modified (number; optional)
   - size (number; optional)"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, files=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'selectedPath', 'files']
+    def __init__(self, id=Component.UNDEFINED, selectedPath=Component.UNDEFINED, files=Component.UNDEFINED, momentFiles=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'selectedPath', 'files', 'momentFiles']
         self._type = 'KeyedFileBrowser'
         self._namespace = 'dash_cool_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'selectedPath', 'files']
+        self.available_properties = ['id', 'selectedPath', 'files', 'momentFiles']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

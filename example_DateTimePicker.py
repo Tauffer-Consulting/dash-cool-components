@@ -25,12 +25,19 @@ app.layout = dbc.Container([
         dbc.Col([
             dbc.Label('Output String'),
             dbc.Input(id='output-text')
-            
         ],width={'size':4}),
     ]),
     html.Div(id='hidden')
 ], style={'marginTop': '200px'})
 
+@app.callback(
+    Output('output', 'defaultValue'),
+    [Input('output-text', 'value')]
+)
+def test(value):
+    print(value)
+    return value
+'''
 @app.callback(
     [Output('output', 'defaultValue'), Output('output-text', 'value')],
     [Input('input', 'value')]
@@ -38,6 +45,7 @@ app.layout = dbc.Container([
 def timezone_test(value):
     print('out', value)
     return value, value
+'''
 
 if __name__ == '__main__':
     app.run_server(debug=True)

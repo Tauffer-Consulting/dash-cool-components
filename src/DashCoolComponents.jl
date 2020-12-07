@@ -3,7 +3,7 @@ module DashCoolComponents
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
-const version = "0.1.2"
+const version = "0.1.3"
 
 include("datetimepicker.jl")
 include("keyedfilebrowser.jl")

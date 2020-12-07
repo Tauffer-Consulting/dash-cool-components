@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-keyedFileBrowser <- function(id=NULL, selectedPath=NULL, files=NULL) {
+keyedFileBrowser <- function(id=NULL, selectedPath=NULL, files=NULL, momentFiles=NULL) {
     
-    props <- list(id=id, selectedPath=selectedPath, files=files)
+    props <- list(id=id, selectedPath=selectedPath, files=files, momentFiles=momentFiles)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ keyedFileBrowser <- function(id=NULL, selectedPath=NULL, files=NULL) {
         props = props,
         type = 'KeyedFileBrowser',
         namespace = 'dash_cool_components',
-        propNames = c('id', 'selectedPath', 'files'),
+        propNames = c('id', 'selectedPath', 'files', 'momentFiles'),
         package = 'dashCoolComponents'
         )
 
