@@ -11,8 +11,11 @@ dir_dict = [
     {'key': 'dir1/', 'size': 1},
     {'key': 'dir1/my_image.jpeg', 'modified': 141, 'size': 2782874},
     {'key': 'dir2/', 'size': 1},
+    {'key': 'dir2/other_image.tif', 'modified': 100, 'size': 499240007},
     {'key': 'dir2/other_image.tif', 'modified': 100, 'size': 499240007}
 ]
+
+#test = [{'key': 'files2/102086.nwb', 'modified': 144, 'size': 2782874}, {'key': 'files2/GPi12_LRDL_Visual_Cue_Setup2_20191230_164119.mat', 'modified': 10, 'size': 126624}, {'key': 'files2/nwb_files/102086.nwb', 'modified': 144, 'size': 2782874}, {'key': 'files2/nwb_files/102511.nwb', 'modified': 124, 'size': 3086872}, {'key': 'files2/nwb_files/oephys_dataset_original/raw_data/Emx1-s_highzoom/102086_2.tif', 'modified': 3, 'size': 499240007}, {'key': 'files2/h5_files/102086.h5', 'modified': 40, 'size': 129986224}, {'key': 'files2/', 'modified': None, 'size': 0}, {'key': 'files2/nwb_files/', 'modified': None, 'size': 0}, {'key': 'files2/nwb_files/oephys_dataset_original/', 'modified': None, 'size': 0}, {'key': 'files2/nwb_files/oephys_dataset_original/raw_data/', 'modified': None, 'size': 0}, {'key': 'files2/nwb_files/oephys_dataset_original/raw_data/Emx1-s_highzoom/', 'modified': None, 'size': 0}, {'key': 'files2/h5_files/', 'modified': None, 'size': 0}]
 
 app.layout = dbc.Container([
     dbc.Row([
@@ -22,7 +25,7 @@ app.layout = dbc.Container([
         dbc.Col(
             dash_cool_components.KeyedFileBrowser(
                 id="input",
-                files=dir_dict
+                files=dir_dict,
             ), width={'size':4}
         ),
         dbc.Col([

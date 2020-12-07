@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import FileBrowser from 'react-keyed-file-browser';
 import '../../../node_modules/react-keyed-file-browser/dist/react-keyed-file-browser.css';
 import Moment from 'moment';
-import { set } from 'ramda';
+//import { set } from 'ramda';
 
 const alertOnUndefinedFolder = () => {
     console.warn(
@@ -19,6 +19,8 @@ const alertOnUndefinedFolder = () => {
  */
 const KeyedFileBrowser = ({ id, setProps, files }) => {
 
+    const [filesState, setFilesState] = useState(files);
+
     const handleSelectFile = useCallback(file => {
         setProps({ selectedPath: file.key });
     }, []);
@@ -32,22 +34,21 @@ const KeyedFileBrowser = ({ id, setProps, files }) => {
 
     useEffect(() => {
         // Hook to update modified date from python number to MomentJS delta
-        let auxArray = Array()
+        const auxArray = Array()
         files.map(element => {
-            let aux = Object()
+            const aux = Object()
             if ('key' in element) aux['key'] = element['key'];
             if ('modified' in element) aux['modified'] = +Moment().subtract(element['modified'], 'days')
             if ('size' in element) aux['size'] = element['size']
             auxArray.push(aux)
         })
-        setProps({ files: auxArray })
-
-    }, [])
+        setFilesState(auxArray)
+    }, [files])
 
     return (
         <div id={id}>
             <FileBrowser
-                files={files}
+                files={filesState}
                 onSelectFile={handleSelectFile}
                 onSelectFolder={handleSelectFolder}
             />
@@ -91,12 +92,5 @@ KeyedFileBrowser.propTypes = {
         key: PropTypes.string.isRequired,
         modified: PropTypes.number,
         size: PropTypes.number,
-    })),
-
-    momentFiles: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string.isRequired,
-        //modified: PropTypes.instanceOf(Date),
-        modified: PropTypes.number,
-        size: PropTypes.number,
-    })),
+    }))
 };

@@ -24,14 +24,9 @@ Those elements have the following types:
   - `key` (String; required)
   - `modified` (Real; optional)
   - `size` (Real; optional)s
-- `momentFiles` (optional): . momentFiles has the following type: Array of lists containing elements 'key', 'modified', 'size'.
-Those elements have the following types:
-  - `key` (String; required)
-  - `modified` (Real; optional)
-  - `size` (Real; optional)s
 """
 function keyedfilebrowser(; kwargs...)
-        available_props = Symbol[:id, :selectedPath, :files, :momentFiles]
+        available_props = Symbol[:id, :selectedPath, :files]
         wild_props = Symbol[]
         return Component("keyedfilebrowser", "KeyedFileBrowser", "dash_cool_components", available_props, wild_props; kwargs...)
 end
