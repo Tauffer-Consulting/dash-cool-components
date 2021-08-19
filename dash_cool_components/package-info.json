@@ -1,6 +1,6 @@
 {
   "name": "dash_cool_components",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Cool React components, wrapped for Plotly Dash",
   "repository": {
     "type": "git",
