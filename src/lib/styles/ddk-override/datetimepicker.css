@@ -34,3 +34,9 @@
 .ddk-container .react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input[type="time"] {
     border-color: var(--border);
 }
+
+.ddk-container .react-datepicker-wrapper,
+.ddk-container .react-datepicker-ignore-onclickoutside,
+.ddk-container .gmjWml{
+    max-width: 100%
+}
