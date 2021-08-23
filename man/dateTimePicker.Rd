@@ -10,7 +10,7 @@ DateTimePicker is a datetime input component. The inputs can be initialized with
 }
 
 \usage{
-dateTimePicker(id=NULL, value=NULL, defaultValue=NULL, placeholder=NULL,
+dateTimePicker(id=NULL, value=NULL, placeholder=NULL,
 timezonePlaceholder=NULL, renderTimezone=NULL, style=NULL,
 dateInputStyle=NULL, timezoneInputStyle=NULL)
 }
@@ -20,9 +20,7 @@ dateInputStyle=NULL, timezoneInputStyle=NULL)
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
 
-\item{value}{Character. The input's current value.}
-
-\item{defaultValue}{Character. The input's default value. Accepts values on the ISO format.}
+\item{value}{Character. The input's value. Accepts values on the ISO format.}
 
 \item{placeholder}{Character. The date input placeholder.}
 

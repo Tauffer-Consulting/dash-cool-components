@@ -13,7 +13,7 @@ app.layout = dbc.Container([
             dbc.Label('Input component'),
             dash_cool_components.DateTimePicker(
                 id="input",
-                defaultValue="2020-09-02T14:00:00.000-05:00"
+                value="2020-09-02T14:00:00.000-03:00"
             )
         ], width={'size':4}),
         dbc.Col([
@@ -32,7 +32,7 @@ app.layout = dbc.Container([
 
 
 @app.callback(
-    [Output('output', 'defaultValue'), Output('output-text', 'value')],
+    [Output('output', 'value'), Output('output-text', 'value')],
     [Input('input', 'value')]
 )
 def timezone_test(value):

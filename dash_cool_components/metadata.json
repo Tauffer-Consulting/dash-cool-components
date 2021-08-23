@@ -16,7 +16,7 @@
           "name": "string"
         },
         "required": false,
-        "description": "The input's current value.",
+        "description": "The input's value. Accepts values on the ISO format.",
         "defaultValue": {
           "value": "null",
           "computed": false
@@ -28,13 +28,6 @@
         },
         "required": false,
         "description": "Dash-assigned callback that gets fired when the value changes."
-      },
-      "defaultValue": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The input's default value. Accepts values on the ISO format."
       },
       "placeholder": {
         "type": {

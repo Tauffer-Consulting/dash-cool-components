@@ -30,26 +30,25 @@ const DateTimePicker = ({
     style,
     dateInputStyle,
     timezoneInputStyle,
-    defaultValue,
     renderTimezone,
 }) => {
-    const [datetime, setDatetime] = useState(getFormattedDate(defaultValue));
-    const [dateInputValue, setDateInputValue] = useState(getFormattedDateInput(defaultValue));
-    const [timezoneInputValue, setTimezoneInputValue] = useState(getFormattedTimezoneInput(defaultValue));
+    const [datetime, setDatetime] = useState(null);
+    const [dateInputValue, setDateInputValue] = useState(null);
+    const [timezoneInputValue, setTimezoneInputValue] = useState(null);
 
-    useEffect(function onDefaultValueChange() {
-        const newDatetime = getFormattedDate(defaultValue);
+    useEffect(function onValueChange() {
+        const newDatetime = getFormattedDate(value);
 
         if (!isEqual(newDatetime, datetime)) {
-            const newDateInputValue = getFormattedDateInput(defaultValue);
-            const newTimezoneInputValue = getFormattedTimezoneInput(defaultValue);
-
+            const newDateInputValue = getFormattedDateInput(value);
+            const newTimezoneInputValue = getFormattedTimezoneInput(value);
             setDateInputValue(newDateInputValue);
             setTimezoneInputValue(newTimezoneInputValue);
         }
-    }, [defaultValue])
+    }, [value])
 
     useEffect(function updateDateValue() {
+        if (datetime === null) return;
         if (datetime.isValid) {
             const stringDatetime = datetime.toString();
 
@@ -123,7 +122,7 @@ DateTimePicker.propTypes = {
     id: PropTypes.string,
 
     /**
-    * The input's current value.
+    * The input's value. Accepts values on the ISO format.
     */
     value: PropTypes.string,
 
@@ -132,10 +131,6 @@ DateTimePicker.propTypes = {
      */
     setProps: PropTypes.func,
 
-    /**
-    * The input's default value. Accepts values on the ISO format.
-    */
-    defaultValue: PropTypes.string,
 
     /**
     * The date input placeholder.
