@@ -5,7 +5,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import { DateTime } from 'luxon';
 
 import ptBR from 'date-fns/locale/pt-BR';
-import { appendTimezone, getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput } from '../utils/DatePicker';
+import { appendTimezone, getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput, getDateWithoutTimezone } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
 import utcOptions from '../data/utcOptions';
@@ -53,7 +53,7 @@ const DateTimePicker = ({
             const stringDatetime = datetime.toString();
 
             if (!isEqual(stringDatetime, value)) {
-                setProps({ value: stringDatetime });
+                renderTimezone ? setProps({value: stringDatetime}) : setProps({value: getDateWithoutTimezone(stringDatetime)})
             }
         }
     }, [datetime]);
@@ -61,9 +61,11 @@ const DateTimePicker = ({
     useEffect(function updateDatetime() {
         let newDatetime = DateTime.fromJSDate(dateInputValue);
 
-        newDatetime = appendTimezone(newDatetime, timezoneInputValue);
-
+        if (renderTimezone){
+            newDatetime = appendTimezone(newDatetime, timezoneInputValue);
+        }
         setDatetime(newDatetime);
+
     }, [dateInputValue, timezoneInputValue]);
 
     return (
