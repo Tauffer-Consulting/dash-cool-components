@@ -10,15 +10,13 @@ KeyedFileBrowser is a component that renders a file browser based on a entry JSO
 }
 
 \usage{
-keyedFileBrowser(id=NULL, selectedPath=NULL, files=NULL)
+keyedFileBrowser(id=NULL, files=NULL, selectedPath=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID of this component, used to identify dash components
 in callbacks. The ID needs to be unique across all of the
 components in an app.}
-
-\item{selectedPath}{Character. The current selected path in the browser.}
 
 \item{files}{List of lists containing elements 'key', 'modified', 'size'.
 those elements have the following types:
@@ -30,6 +28,8 @@ property, which specifies it's location in the tree. Other
 properties are `modified` and `size`.
 To be able to receive the path selection feedback, you must
 enter keys for both files and folders.}
+
+\item{selectedPath}{Character. The current selected path in the browser.}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}
