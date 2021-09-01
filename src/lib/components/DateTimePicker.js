@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { DateTime } from 'luxon';
 
-import ptBR from 'date-fns/locale/pt-BR';
+//import ptBR from 'date-fns/locale/pt-BR';
+import enUS from 'date-fns/locale/en-US'
 import { appendTimezone, getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput, getDateWithoutTimezone } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
@@ -15,7 +16,9 @@ import { Container, Input, Select } from './Styles/DateTimePicker';
 import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-registerLocale('pt-BR', ptBR);
+
+registerLocale('en-US', enUS)
+
 /**
  * DateTimePicker is a datetime input component.
  * The inputs can be initialized with the `defaultValue` property and the
@@ -112,7 +115,7 @@ DateTimePicker.defaultProps = {
     value: null,
     renderTimezone: true,
     placeholder: 'dd/MM/yyyy hh:mm',
-    timezonePlaceholder: 'Select timezone...',
+    timezonePlaceholder: 'Select timezone...'
 };
 
 DateTimePicker.propTypes = {
@@ -163,6 +166,7 @@ DateTimePicker.propTypes = {
     * The timezone input's container style.
     */
     timezoneInputStyle: PropTypes.object,
+
 };
 
 export default DateTimePicker;
