@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { DateTime } from 'luxon';
 
-import ptBR from 'date-fns/locale/pt-BR';
-import enUS from 'date-fns/locale/en-US'
+import {pt, ptBR, enUS, enIN, es, it, de} from 'date-fns/locale';
+
 import { appendTimezone, getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput, getDateWithoutTimezone } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
 
@@ -18,8 +18,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 const locales = {
+    "pt": pt,
     "pt-BR": ptBR,
-    "en-US": enUS
+    "en-US": enUS,
+    "en-IN": enIN,
+    "es": es,
+    "it": it,
+    "de": de
 }
 
 /**
@@ -179,7 +184,8 @@ DateTimePicker.propTypes = {
     /*
     * Datetime picker locale.
     */
-    locale: PropTypes.oneOf(['pt-BR', 'en-US'])
+    locale: PropTypes.oneOf(["pt", 'pt-BR', 'en-US', "en-IN", "es", "it", "de"])
+
 };
 
 export default DateTimePicker;
