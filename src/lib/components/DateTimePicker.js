@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { DateTime } from 'luxon';
 
-//import ptBR from 'date-fns/locale/pt-BR';
+import ptBR from 'date-fns/locale/pt-BR';
 import enUS from 'date-fns/locale/en-US'
 import { appendTimezone, getFormattedDate, getFormattedDateInput, getFormattedTimezoneInput, getDateWithoutTimezone } from '../utils/DatePicker';
 import isEqual from '../utils/isEqual';
@@ -17,7 +17,10 @@ import 'react-bootstrap-timezone-picker/dist/react-bootstrap-timezone-picker.min
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-registerLocale('en-US', enUS)
+const locales = {
+    "pt-BR": ptBR,
+    "en-US": enUS
+}
 
 /**
  * DateTimePicker is a datetime input component.
@@ -34,10 +37,15 @@ const DateTimePicker = ({
     dateInputStyle,
     timezoneInputStyle,
     renderTimezone,
+    locale
 }) => {
     const [datetime, setDatetime] = useState(null);
     const [dateInputValue, setDateInputValue] = useState(null);
     const [timezoneInputValue, setTimezoneInputValue] = useState(null);
+
+    useEffect(() => {
+        registerLocale(locale, locales[locale])
+    }, [locale])
 
     useEffect(function onValueChange() {
         const newDatetime = getFormattedDate(value);
@@ -75,7 +83,7 @@ const DateTimePicker = ({
         <Container id={id} style={style}>
             <DatePicker
                 selected={dateInputValue}
-                locale="pt-BR"
+                locale={locale}
                 showTimeInput
                 customInput={<Input style={dateInputStyle} />}
                 dateFormat="dd/MM/yyyy hh:mm"
@@ -115,7 +123,8 @@ DateTimePicker.defaultProps = {
     value: null,
     renderTimezone: true,
     placeholder: 'dd/MM/yyyy hh:mm',
-    timezonePlaceholder: 'Select timezone...'
+    timezonePlaceholder: 'Select timezone...',
+    locale: 'en-US'
 };
 
 DateTimePicker.propTypes = {
@@ -167,6 +176,10 @@ DateTimePicker.propTypes = {
     */
     timezoneInputStyle: PropTypes.object,
 
+    /*
+    * Datetime picker locale.
+    */
+    locale: PropTypes.oneOf(['pt-BR', 'en-US'])
 };
 
 export default DateTimePicker;
