@@ -98,6 +98,47 @@
         },
         "required": false,
         "description": "The timezone input's container style."
+      },
+      "locale": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "\"pt\"",
+              "computed": false
+            },
+            {
+              "value": "'pt-BR'",
+              "computed": false
+            },
+            {
+              "value": "'en-US'",
+              "computed": false
+            },
+            {
+              "value": "\"en-IN\"",
+              "computed": false
+            },
+            {
+              "value": "\"es\"",
+              "computed": false
+            },
+            {
+              "value": "\"it\"",
+              "computed": false
+            },
+            {
+              "value": "\"de\"",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'en-US'",
+          "computed": false
+        }
       }
     }
   },
