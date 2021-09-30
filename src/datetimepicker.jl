@@ -20,9 +20,10 @@ components in an app.
 - `style` (Dict | String; optional): The container's style.
 - `dateInputStyle` (Dict | String; optional): The date input's style.
 - `timezoneInputStyle` (Dict; optional): The timezone input's container style.
+- `locale` (a value equal to: "pt", 'pt-BR', 'en-US', "en-IN", "es", "it", "de"; optional)
 """
 function datetimepicker(; kwargs...)
-        available_props = Symbol[:id, :value, :placeholder, :timezonePlaceholder, :renderTimezone, :style, :dateInputStyle, :timezoneInputStyle]
+        available_props = Symbol[:id, :value, :placeholder, :timezonePlaceholder, :renderTimezone, :style, :dateInputStyle, :timezoneInputStyle, :locale]
         wild_props = Symbol[]
         return Component("datetimepicker", "DateTimePicker", "dash_cool_components", available_props, wild_props; kwargs...)
 end
