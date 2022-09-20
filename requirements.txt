@@ -11,14 +11,15 @@ click==7.1.2
 colorama==0.4.3
 coloredlogs==14.0
 cryptography==3.1
-dash==1.15.0
+dash==2.6.1
 dash-bootstrap-components==0.10.5
-dash-core-components==1.11.0
+-e git+https://github.com/Tauffer-Consulting/dash-cool-components.git@d78b12684f250bda0b386bf226f860284fcb2bb2#egg=dash_cool_components
+dash-core-components==2.0.0
 dash-dangerously-set-inner-html==0.0.2
 dash-flow-example==0.0.5
-dash-html-components==1.1.0
+dash-html-components==2.0.0
 dash-renderer==1.7.0
-dash-table==4.10.0
+dash-table==5.0.0
 docutils==0.16
 entrypoints==0.3
 fire==0.2.1
@@ -41,7 +42,7 @@ mock==4.0.1
 packaging==20.4
 pathspec==0.8.0
 pkginfo==1.5.0.1
-plotly==4.9.0
+plotly==5.10.0
 pycodestyle==2.5.0
 pycparser==2.20
 pyflakes==2.1.1
@@ -57,6 +58,7 @@ retrying==1.3.3
 rfc3986==1.4.0
 SecretStorage==3.1.2
 six==1.15.0
+tenacity==8.0.1
 termcolor==1.1.0
 toml==0.10.1
 tqdm==4.48.2

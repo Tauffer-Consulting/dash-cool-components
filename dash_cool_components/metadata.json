@@ -142,6 +142,88 @@
       }
     }
   },
+  "src/lib/components/GrammarRelationship.react.js": {
+    "description": "",
+    "displayName": "GrammarRelationship",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "data": {
+        "type": {
+          "name": "objectOf",
+          "value": {
+            "name": "shape",
+            "value": {
+              "text": {
+                "name": "string",
+                "required": false
+              },
+              "pos": {
+                "name": "string",
+                "required": false
+              },
+              "head": {
+                "name": "shape",
+                "value": {
+                  "ind": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "relationship": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "relationshipTag": {
+                    "name": "string",
+                    "required": false
+                  }
+                },
+                "required": false
+              },
+              "posTag": {
+                "name": "string",
+                "required": false
+              },
+              "children": {
+                "name": "any",
+                "required": false
+              }
+            }
+          }
+        },
+        "required": false,
+        "description": "The data to be displayed",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{\n    \"display\": \"flex\",\n    \"justify-content\": \"center\",\n    \"align-items\": \"center\"\n}",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/KeyedFileBrowser.js": {
     "description": "KeyedFileBrowser is a component that renders a file browser based on a entry JSON.\nThe files and folders can be selected and the selected path can be\naccessed via the `selectedPath` property.",
     "displayName": "KeyedFileBrowser",
