@@ -215,6 +215,23 @@
           "computed": false
         }
       },
+      "selectedText": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "text": {
+              "name": "string",
+              "required": false
+            },
+            "id": {
+              "name": "string",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
       "setProps": {
         "type": {
           "name": "func"

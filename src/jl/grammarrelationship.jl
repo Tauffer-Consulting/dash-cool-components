@@ -20,10 +20,14 @@ Those elements have the following types:
   - `relationshipTag` (String; optional)
   - `posTag` (String; optional)
   - `children` (Bool | Real | String | Dict | Array; optional)
+- `selectedText` (optional): . selectedText has the following type: lists containing elements 'text', 'id'.
+Those elements have the following types:
+  - `text` (String; optional)
+  - `id` (String; optional)
 - `style` (Dict; optional)
 """
 function grammarrelationship(; kwargs...)
-        available_props = Symbol[:id, :data, :style]
+        available_props = Symbol[:id, :data, :selectedText, :style]
         wild_props = Symbol[]
         return Component("grammarrelationship", "GrammarRelationship", "dash_cool_components", available_props, wild_props; kwargs...)
 end

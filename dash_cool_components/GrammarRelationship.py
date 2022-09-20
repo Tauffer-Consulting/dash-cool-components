@@ -36,16 +36,24 @@ Keyword arguments:
 
     - text (string; optional)
 
+- selectedText (dict; optional)
+
+    `selectedText` is a dict with keys:
+
+    - id (string; optional)
+
+    - text (string; optional)
+
 - style (dict; default {    "display": "flex",    "justify-content": "center",    "align-items": "center"})"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'dash_cool_components'
     _type = 'GrammarRelationship'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'data', 'style']
+    def __init__(self, id=Component.UNDEFINED, data=Component.UNDEFINED, style=Component.UNDEFINED, selectedText=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'data', 'selectedText', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'data', 'style']
+        self.available_properties = ['id', 'data', 'selectedText', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

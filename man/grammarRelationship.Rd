@@ -10,7 +10,7 @@
 }
 
 \usage{
-grammarRelationship(id=NULL, data=NULL, style=NULL)
+grammarRelationship(id=NULL, data=NULL, selectedText=NULL, style=NULL)
 }
 
 \arguments{
@@ -27,6 +27,11 @@ those elements have the following types:
   - relationshiptag (character; optional)
   - postag (character; optional)
   - children (logical | numeric | character | named list | unnamed list; optional). The data to be displayed}
+
+\item{selectedText}{Lists containing elements 'text', 'id'.
+those elements have the following types:
+  - text (character; optional)
+  - id (character; optional). }
 
 \item{style}{Named list. }
 }

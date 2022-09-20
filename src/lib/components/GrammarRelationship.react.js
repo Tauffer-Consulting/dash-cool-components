@@ -28,10 +28,12 @@ const GrammarRelationship = ({id, data, style, setProps}) => {
 
     const handleSpanClick = useCallback((e) => {
         e.preventDefault()
-        setSelectedText({
-        text: e.currentTarget.innerText,
-        id: e.currentTarget.id
-        })
+        const textObj = {
+            text: e.currentTarget.innerText,
+            id: e.currentTarget.id
+        }
+        setSelectedText(textObj)
+        setProps({selectedText: textObj})
         // @todo update background color style ?
         // e.target.style.setProperty('background-color', 'red')
         
@@ -160,6 +162,11 @@ GrammarRelationship.propTypes = {
     ),
     
     style: PropTypes.object,
+
+    selectedText: PropTypes.shape({
+        text: PropTypes.string,
+        id: PropTypes.string
+    }),
 
     /**
      * Dash-assigned callback that should be called to report property changes
