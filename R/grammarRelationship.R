@@ -1,17 +1,17 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 #' @export
-keyedFileBrowser <- function(id=NULL, files=NULL, selectedPath=NULL) {
+grammarRelationship <- function(id=NULL, data=NULL, selectedText=NULL, style=NULL) {
     
-    props <- list(id=id, files=files, selectedPath=selectedPath)
+    props <- list(id=id, data=data, selectedText=selectedText, style=style)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
     component <- list(
         props = props,
-        type = 'KeyedFileBrowser',
+        type = 'GrammarRelationship',
         namespace = 'dash_cool_components',
-        propNames = c('id', 'files', 'selectedPath'),
+        propNames = c('id', 'data', 'selectedText', 'style'),
         package = 'dashCoolComponents'
         )
 

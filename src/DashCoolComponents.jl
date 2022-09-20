@@ -5,9 +5,10 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.1.5"
 
-include("datetimepicker.jl")
-include("keyedfilebrowser.jl")
-include("taginput.jl")
+include("jl/datetimepicker.jl")
+include("jl/grammarrelationship.jl")
+include("jl/keyedfilebrowser.jl")
+include("jl/taginput.jl")
 
 function __init__()
     DashBase.register_package(
